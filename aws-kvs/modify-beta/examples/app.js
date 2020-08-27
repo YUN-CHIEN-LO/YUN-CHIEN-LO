@@ -28,18 +28,20 @@ const fullHdConstraints = {
 };
 var constraints = vgaConstraints
 
-// var reconnect;
-// if (document.getElementById("connectStatus").innerText == "disconnected") {
-//     console.log("reconnect ....");
-//     reconnect = setInterval("startViewer", 1000);
-// }
-// if (document.getElementById("connectStatus").innerText == "connected") {
-//     console.log("connect success");
-//     clearInterval(reconnect);
-// }
+
 
 $('#connectStatus').bind('DOMSubtreeModified', function() {
-    console.log('changed');
+    var reconnect;
+    var status = document.getElementById("connectStatus").innerText;
+    console.log(status);
+    if (status == "disconnected") {
+        console.log("reconnect ....");
+        reconnect = setInterval("startViewer", 1000);
+    }
+    if (status == "disconnected") {
+        console.log("connect success");
+        clearInterval(reconnect);
+    }
 });
 
 navigator.mediaDevices.enumerateDevices().then(gotDevices);
