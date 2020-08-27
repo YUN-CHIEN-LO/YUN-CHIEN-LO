@@ -147,6 +147,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
                 console.log("viewer ice disconnected");
                 // document.getElementById("connectStatus").innerText = "disconnected";
                 viewerIceConnectionStatus = false;
+                // 123
                 //   this.sendSdpOffer()
                 //   .then(() => {
                 //     this.sdpOfferInterval = setInterval(this.sendSdpOffer, SDP_OFFER_REPEAT_INTERVAL);
