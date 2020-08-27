@@ -26,6 +26,11 @@ const fullHdConstraints = {
     height: { ideal: 1080 },
     deviceId: { ideal: "" }
 };
+setInterval(function() {
+    console.log("viewerIceConnectionStatus", viewerIceConnectionStatus)
+}, 1000);
+
+
 var constraints = vgaConstraints;
 
 

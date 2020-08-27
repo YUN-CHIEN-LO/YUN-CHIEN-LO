@@ -145,22 +145,26 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
             console.log("ice connection state", iceConnectionState);
             if (iceConnectionState === 'disconnected') {
                 console.log("viewer ice disconnected");
-                jQuery.get('index.html', null, function(text) {
-                    // alert($(text).find('#connectStatus').innerText());
-                    var item1 = $("#connectStatus")[0];
-                    console.log(item1);
-                    $(text).find(item1).innerText("disconnected");
-                });
+                viewerIceConnectionStatus = "disConnect";
+
+                // jQuery.get('index.html', null, function(text) {
+                // alert($(text).find('#connectStatus').innerText());
+                // var item1 = $("#connectStatus")[0];
+                // console.log(item1);
+                // $(text).find(item1).innerText("disconnected");
+                // });
                 //document.getElementById("connectStatus").innerText = "disconnected";
                 //   this.sendSdpOffer()
                 //   .then(() => {
                 //     this.sdpOfferInterval = setInterval(this.sendSdpOffer, SDP_OFFER_REPEAT_INTERVAL);
                 //   });
+
             } else if (iceConnectionState === 'failed') {
                 console.log("viewer ice failed")
                 viewer.status = FAILED;
             } else if (iceConnectionState === 'connected') {
                 console.log("viewer ice connected");
+                viewerIceConnectionStatus = "Connected";
                 // jQuery.get('index.html', null, function(text) {
                 //     $(text).find('#connectStatus').innerText() = "disconnected";
                 // });
