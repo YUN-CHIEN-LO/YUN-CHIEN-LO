@@ -1,6 +1,6 @@
 let ROLE = null; // Possible values: 'master', 'viewer', null
 let kinesisVideoClient = null;
-
+var getForm = false;
 // video resolution
 const qvgaConstraints = {
     // video: { width: { ideal: 320 }, height: { ideal: 240 }, deviceID: { exact: "046d:081b" } }
@@ -26,26 +26,24 @@ const fullHdConstraints = {
     height: { ideal: 1080 },
     deviceId: { ideal: "" }
 };
-var constraints = vgaConstraints
+var viewerIceConnectionStatusPre = "none";
+setInterval(function() {
+    console.log("viewerIceConnectionStatus", viewerIceConnectionStatus)
+    document.getElementById("connectStatus").innerText = viewerIceConnectionStatus;
+}, 1000);
 
+
+var constraints = vgaConstraints;
 
 
 $('#connectStatus').bind('DOMSubtreeModified', function() {
-    var reconnect;
     var status = document.getElementById("connectStatus").innerText;
     console.log(status);
-    if (status == "disconnected") {
+
+    if (status == "disConnect") {
         console.log("reconnect ....");
-        // reconnect = setInterval(function(){
-        //     stopViewer();
-        //     viewerBTN();
-        // }, 1000);
         stopViewer();
         viewerBTN();
-    }
-    if (status == "connected") {
-        console.log("connect success");
-        clearInterval(reconnect);
     }
 });
 
@@ -136,6 +134,7 @@ function getFormValues() {
         sessionToken: $('#sessionToken').val() || null,
     };
 }
+var formValues;
 
 function toggleDataChannelElements() {
     if (getFormValues().openDataChannel) {
@@ -161,12 +160,6 @@ function onStop() {
         stopViewer();
         $('#viewer').addClass('d-none');
     }
-    var closeChannel = window.setTimeout(function() {
-        $('#master-button').click(() => clearTimeout(this));
-        $('#form').removeClass('d-none');
-        const formValues = getFormValues();
-        // removeSignalingChannel(formValues);
-    }, 10000);
 
     ROLE = null;
 }
@@ -228,7 +221,11 @@ function masterBtn() {
     const remoteView = masterViewerDom;
     const localMessage = $('#master .local-message')[0];
     const remoteMessage = $('#master .remote-message')[0];
-    const formValues = getFormValues();
+    //const formValues = getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
 
     $(remoteMessage).empty();
     localMessage.value = '';
@@ -285,8 +282,11 @@ function viewerBTN() {
     const remoteView = viewerMasterDom;
     const localMessage = $('#viewer .local-message')[0];
     const remoteMessage = $('#viewer .remote-message')[0];
-    const formValues = getFormValues();
-
+    //const formValues = getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
     $(remoteMessage).empty();
     localMessage.value = '';
     toggleDataChannelElements();
@@ -306,7 +306,11 @@ $('#stop-viewer-button').click(function() {
 });
 
 $('#create-channel-button').click(async() => {
-    const formValues = getFormValues();
+    //const formValues = getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
     createSignalingChannel(formValues);
 });
 
@@ -321,7 +325,11 @@ $('#viewer .send-message').click(async() => {
 });
 
 function getSignalingChannelEndpoint() {
-    const formValues = getFormValues();
+    //const formValues = getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
     getSignalingChannelEndpoint(formValues);
 }
 

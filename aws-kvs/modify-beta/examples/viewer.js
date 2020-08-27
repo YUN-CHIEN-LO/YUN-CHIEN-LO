@@ -5,8 +5,8 @@ const viewer = {};
 async function startViewer(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     viewer.localView = localView;
     viewer.remoteView = remoteView;
-
-    // Create KVS client
+    document.getElementById("connectStatus").innerText = "connecting"
+        // Create KVS client
     const kinesisVideoClient = new AWS.KinesisVideo({
         region: formValues.region,
         accessKeyId: formValues.accessKeyId,
@@ -142,19 +142,32 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
         //detect disconnection
         viewer.peerConnection.oniceconnectionstatechange = () => {
             const iceConnectionState = viewer.peerConnection.iceConnectionState;
+            console.log("ice connection state", iceConnectionState);
             if (iceConnectionState === 'disconnected') {
                 console.log("viewer ice disconnected");
-                document.getElementById("connectStatus").innerText = "disconnected";
+                viewerIceConnectionStatus = "disConnect";
+
+                // jQuery.get('index.html', null, function(text) {
+                // alert($(text).find('#connectStatus').innerText());
+                // var item1 = $("#connectStatus")[0];
+                // console.log(item1);
+                // $(text).find(item1).innerText("disconnected");
+                // });
+                //document.getElementById("connectStatus").innerText = "disconnected";
                 //   this.sendSdpOffer()
                 //   .then(() => {
                 //     this.sdpOfferInterval = setInterval(this.sendSdpOffer, SDP_OFFER_REPEAT_INTERVAL);
                 //   });
+
             } else if (iceConnectionState === 'failed') {
                 console.log("viewer ice failed")
                 viewer.status = FAILED;
             } else if (iceConnectionState === 'connected') {
                 console.log("viewer ice connected");
-                document.getElementById("connectStatus").innerText = "connected";
+                viewerIceConnectionStatus = "Connected";
+                // jQuery.get('index.html', null, function(text) {
+                //     $(text).find('#connectStatus').innerText() = "disconnected";
+                // });
             }
         };
         // When trickle ICE is enabled, send the offer now and then send ICE candidates as they are generated. Otherwise wait on the ICE candidates.
