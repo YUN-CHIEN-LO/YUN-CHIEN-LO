@@ -135,7 +135,7 @@ function getFormValues() {
         sessionToken: $('#sessionToken').val() || null,
     };
 }
-const formValues;
+var formValues;
 formValues = (formValues) ? formValues : getFormValues();
 
 function toggleDataChannelElements() {
