@@ -136,7 +136,6 @@ function getFormValues() {
     };
 }
 var formValues;
-formValues = (formValues) ? formValues : getFormValues();
 
 function toggleDataChannelElements() {
     if (getFormValues().openDataChannel) {
@@ -224,6 +223,7 @@ function masterBtn() {
     const localMessage = $('#master .local-message')[0];
     const remoteMessage = $('#master .remote-message')[0];
     //const formValues = getFormValues();
+    formValues = (formValues.channelName) ? formValues : getFormValues();
 
     $(remoteMessage).empty();
     localMessage.value = '';
@@ -281,7 +281,7 @@ function viewerBTN() {
     const localMessage = $('#viewer .local-message')[0];
     const remoteMessage = $('#viewer .remote-message')[0];
     //const formValues = getFormValues();
-
+    formValues = (formValues.channelName) ? formValues : getFormValues();
     $(remoteMessage).empty();
     localMessage.value = '';
     toggleDataChannelElements();
@@ -302,6 +302,7 @@ $('#stop-viewer-button').click(function() {
 
 $('#create-channel-button').click(async() => {
     //const formValues = getFormValues();
+    formValues = (formValues.channelName) ? formValues : getFormValues();
     createSignalingChannel(formValues);
 });
 
@@ -317,6 +318,7 @@ $('#viewer .send-message').click(async() => {
 
 function getSignalingChannelEndpoint() {
     //const formValues = getFormValues();
+    formValues = (formValues.channelName) ? formValues : getFormValues();
     getSignalingChannelEndpoint(formValues);
 }
 
