@@ -29,7 +29,7 @@ const fullHdConstraints = {
 var viewerIceConnectionStatusPre = "none";
 setInterval(function() {
     console.log("viewerIceConnectionStatus", viewerIceConnectionStatus)
-    document.getElementById("connectStatus").innerText("viewerIceConnectionStatus");
+    document.getElementById("connectStatus").innerHTML("viewerIceConnectionStatus");
 }, 1000);
 
 
