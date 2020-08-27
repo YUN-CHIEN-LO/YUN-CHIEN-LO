@@ -26,8 +26,8 @@ const fullHdConstraints = {
     height: { ideal: 1080 },
     deviceId: { ideal: "" }
 };
-var constraints = vgaConstraints
-
+var constraints = vgaConstraints;
+const formValues = getFormValues();
 
 
 $('#connectStatus').bind('DOMSubtreeModified', function() {
@@ -164,7 +164,7 @@ function onStop() {
     var closeChannel = window.setTimeout(function() {
         $('#master-button').click(() => clearTimeout(this));
         $('#form').removeClass('d-none');
-        const formValues = getFormValues();
+        //const formValues = getFormValues();
         // removeSignalingChannel(formValues);
     }, 10000);
 
@@ -228,7 +228,7 @@ function masterBtn() {
     const remoteView = masterViewerDom;
     const localMessage = $('#master .local-message')[0];
     const remoteMessage = $('#master .remote-message')[0];
-    const formValues = getFormValues();
+    //const formValues = getFormValues();
 
     $(remoteMessage).empty();
     localMessage.value = '';
@@ -285,7 +285,7 @@ function viewerBTN() {
     const remoteView = viewerMasterDom;
     const localMessage = $('#viewer .local-message')[0];
     const remoteMessage = $('#viewer .remote-message')[0];
-    const formValues = getFormValues();
+    //const formValues = getFormValues();
 
     $(remoteMessage).empty();
     localMessage.value = '';
@@ -306,7 +306,7 @@ $('#stop-viewer-button').click(function() {
 });
 
 $('#create-channel-button').click(async() => {
-    const formValues = getFormValues();
+    //const formValues = getFormValues();
     createSignalingChannel(formValues);
 });
 
@@ -321,7 +321,7 @@ $('#viewer .send-message').click(async() => {
 });
 
 function getSignalingChannelEndpoint() {
-    const formValues = getFormValues();
+    //const formValues = getFormValues();
     getSignalingChannelEndpoint(formValues);
 }
 
