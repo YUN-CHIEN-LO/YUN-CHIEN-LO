@@ -1,6 +1,6 @@
 let ROLE = null; // Possible values: 'master', 'viewer', null
 let kinesisVideoClient = null;
-var getForm = false;
+
 // video resolution
 const qvgaConstraints = {
     // video: { width: { ideal: 320 }, height: { ideal: 240 }, deviceID: { exact: "046d:081b" } }
@@ -26,24 +26,26 @@ const fullHdConstraints = {
     height: { ideal: 1080 },
     deviceId: { ideal: "" }
 };
-var viewerIceConnectionStatusPre = "none";
-setInterval(function() {
-    console.log("viewerIceConnectionStatus", viewerIceConnectionStatus)
-    document.getElementById("connectStatus").innerText = viewerIceConnectionStatus;
-}, 1000);
+var constraints = vgaConstraints
 
-
-var constraints = vgaConstraints;
 
 
 $('#connectStatus').bind('DOMSubtreeModified', function() {
+    var reconnect;
     var status = document.getElementById("connectStatus").innerText;
     console.log(status);
-
-    if (status == "disConnect") {
+    if (status == "disconnected") {
         console.log("reconnect ....");
+        // reconnect = setInterval(function(){
+        //     stopViewer();
+        //     viewerBTN();
+        // }, 1000);
         stopViewer();
         viewerBTN();
+    }
+    if (status == "connected") {
+        console.log("connect success");
+        clearInterval(reconnect);
     }
 });
 
@@ -134,7 +136,6 @@ function getFormValues() {
         sessionToken: $('#sessionToken').val() || null,
     };
 }
-var formValues;
 
 function toggleDataChannelElements() {
     if (getFormValues().openDataChannel) {
@@ -154,12 +155,20 @@ function onStop() {
     }
 
     if (ROLE === 'master') {
+        popupM.close();
         stopMaster();
         $('#master').addClass('d-none');
     } else {
+        popupV.close();
         stopViewer();
         $('#viewer').addClass('d-none');
     }
+    var closeChannel = window.setTimeout(function() {
+        $('#master-button').click(() => clearTimeout(this));
+        $('#form').removeClass('d-none');
+        const formValues = getFormValues();
+        // removeSignalingChannel(formValues);
+    }, 10000);
 
     ROLE = null;
 }
@@ -221,11 +230,7 @@ function masterBtn() {
     const remoteView = masterViewerDom;
     const localMessage = $('#master .local-message')[0];
     const remoteMessage = $('#master .remote-message')[0];
-    //const formValues = getFormValues();
-    if (!getForm) {
-        getForm = true;
-        formValues = getFormValues();
-    }
+    const formValues = getFormValues();
 
     $(remoteMessage).empty();
     localMessage.value = '';
@@ -241,7 +246,7 @@ $('#master-button').click(async() => {
 });
 
 $('#stop-master-button').click(function() {
-    popupM.close();
+    // popupM.close();
     onStop();
 });
 
@@ -282,11 +287,8 @@ function viewerBTN() {
     const remoteView = viewerMasterDom;
     const localMessage = $('#viewer .local-message')[0];
     const remoteMessage = $('#viewer .remote-message')[0];
-    //const formValues = getFormValues();
-    if (!getForm) {
-        getForm = true;
-        formValues = getFormValues();
-    }
+    const formValues = getFormValues();
+
     $(remoteMessage).empty();
     localMessage.value = '';
     toggleDataChannelElements();
@@ -301,16 +303,12 @@ $('#viewer-button').click(async() => {
 });
 
 $('#stop-viewer-button').click(function() {
-    popupV.close();
+    // popupV.close();
     onStop();
 });
 
 $('#create-channel-button').click(async() => {
-    //const formValues = getFormValues();
-    if (!getForm) {
-        getForm = true;
-        formValues = getFormValues();
-    }
+    const formValues = getFormValues();
     createSignalingChannel(formValues);
 });
 
@@ -325,11 +323,7 @@ $('#viewer .send-message').click(async() => {
 });
 
 function getSignalingChannelEndpoint() {
-    //const formValues = getFormValues();
-    if (!getForm) {
-        getForm = true;
-        formValues = getFormValues();
-    }
+    const formValues = getFormValues();
     getSignalingChannelEndpoint(formValues);
 }
 
