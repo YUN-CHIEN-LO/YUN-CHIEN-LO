@@ -27,14 +27,14 @@ const fullHdConstraints = {
     deviceId: { ideal: "" }
 };
 var constraints = vgaConstraints
-var reconnect
+var reconnect;
 if (document.getElementById("connectStatus").innerText == "disconnected") {
     console.log("reconnect ....");
     reconnect = setInterval("startViewer", 1000);
 }
 if (document.getElementById("connectStatus").innerText == "connected") {
     console.log("connect success");
-    clearInterval(reconnect)
+    clearInterval(reconnect);
 }
 
 navigator.mediaDevices.enumerateDevices().then(gotDevices);
