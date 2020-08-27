@@ -145,6 +145,9 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
             console.log("ice connection state", iceConnectionState);
             if (iceConnectionState === 'disconnected') {
                 console.log("viewer ice disconnected");
+                $.get('index.html', null, function(text) {
+                    alert($(text).find('#connectStatus'));
+                });
                 document.getElementById("connectStatus").innerText = "disconnected";
                 //   this.sendSdpOffer()
                 //   .then(() => {
