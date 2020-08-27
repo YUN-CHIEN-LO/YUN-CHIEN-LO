@@ -149,7 +149,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
                     // alert($(text).find('#connectStatus').innerText());
                     var item1 = $("#connectStatus")[0];
                     console.log(item1);
-                    $(text).find(item1).innerText() = "disconnected";
+                    $(text).find(item1).innerText("disconnected");
                 });
                 //document.getElementById("connectStatus").innerText = "disconnected";
                 //   this.sendSdpOffer()
