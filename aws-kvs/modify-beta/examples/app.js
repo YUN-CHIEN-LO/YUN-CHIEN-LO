@@ -38,7 +38,7 @@ $('#connectStatus').bind('DOMSubtreeModified', function() {
         console.log("reconnect ....");
         reconnect = setInterval("startViewer", 1000);
     }
-    if (status == "disconnected") {
+    if (status == "connected") {
         console.log("connect success");
         clearInterval(reconnect);
     }
