@@ -272,13 +272,13 @@ function viewerBTN() {
     $('#viewer').removeClass('d-none');
     var viewerMasterDom;
     popupViewer();
-    if (popupV != null && !popupV.closed) {
-        viewerMasterDom = popupV.document.getElementById("viewer-master")
-            // alert(viewerMasterDom);
-        popupV.focus();
-    } else {
-        alert("Popup has been closed.");
-    }
+    // if (popupV != null && !popupV.closed) {
+    viewerMasterDom = popupV.document.getElementById("viewer-master")
+        // alert(viewerMasterDom);
+    popupV.focus();
+    // } else {
+    // alert("Popup has been closed.");
+    // }
     const localView = $('#viewer .local-view')[0];
     const remoteView = viewerMasterDom;
     const localMessage = $('#viewer .local-message')[0];
