@@ -27,15 +27,20 @@ const fullHdConstraints = {
     deviceId: { ideal: "" }
 };
 var constraints = vgaConstraints
-var reconnect;
-if (document.getElementById("connectStatus").innerText == "disconnected") {
-    console.log("reconnect ....");
-    reconnect = setInterval("startViewer", 1000);
-}
-if (document.getElementById("connectStatus").innerText == "connected") {
-    console.log("connect success");
-    clearInterval(reconnect);
-}
+
+// var reconnect;
+// if (document.getElementById("connectStatus").innerText == "disconnected") {
+//     console.log("reconnect ....");
+//     reconnect = setInterval("startViewer", 1000);
+// }
+// if (document.getElementById("connectStatus").innerText == "connected") {
+//     console.log("connect success");
+//     clearInterval(reconnect);
+// }
+
+$('#connectStatus').bind('DOMSubtreeModified', function() {
+    console.log('changed');
+});
 
 navigator.mediaDevices.enumerateDevices().then(gotDevices);
 var assignCamId;
