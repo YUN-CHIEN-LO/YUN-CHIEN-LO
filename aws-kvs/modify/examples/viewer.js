@@ -1,7 +1,7 @@
 /**
  * This file demonstrates the process of starting WebRTC streaming using a KVS Signaling Channel.
  */
-const viewer = {};
+var viewer = {};
 async function startViewer(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     viewer.localView = localView;
     viewer.remoteView = remoteView;
