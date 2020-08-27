@@ -41,7 +41,7 @@ $('#connectStatus').bind('DOMSubtreeModified', function() {
     var status = document.getElementById("connectStatus").innerText;
     console.log(status);
 
-    if (status == "disconnected") {
+    if (status == "disConnect") {
         console.log("reconnect ....");
         // reconnect = setInterval(function(){
         //     stopViewer();
