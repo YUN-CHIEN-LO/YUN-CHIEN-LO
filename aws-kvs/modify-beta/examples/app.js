@@ -36,7 +36,12 @@ $('#connectStatus').bind('DOMSubtreeModified', function() {
     console.log(status);
     if (status == "disconnected") {
         console.log("reconnect ....");
-        reconnect = setInterval("startViewer", 1000);
+        // reconnect = setInterval(function(){
+        //     stopViewer();
+        //     viewerBTN();
+        // }, 1000);
+        stopViewer();
+        viewerBTN();
     }
     if (status == "connected") {
         console.log("connect success");
@@ -263,6 +268,7 @@ function popupViewer() {
 }
 
 function viewerBTN() {
+    console.log("viewerBTN");
     ROLE = 'viewer';
     $('#form').addClass('d-none');
     $('#viewer').removeClass('d-none');
