@@ -142,6 +142,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
         //detect disconnection
         viewer.peerConnection.oniceconnectionstatechange = () => {
             const iceConnectionState = viewer.peerConnection.iceConnectionState;
+            console.log("ice connection state", iceConnectionState);
             if (iceConnectionState === 'disconnected') {
                 console.log("viewer ice disconnected");
                 document.getElementById("connectStatus").innerText = "disconnected";
