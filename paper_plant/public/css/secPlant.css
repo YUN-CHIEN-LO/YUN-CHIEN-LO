@@ -1,0 +1,126 @@
+.plant-bg {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+  .plant-bg .plantImg {
+    width: 100vw;
+    height: 50vh;
+    background-image: url("../image/plant-bg-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; }
+  .plant-bg .plantText {
+    transform: translateX(0);
+    width: 50vw;
+    min-width: 300px;
+    text-align: center;
+    letter-spacing: 10px;
+    line-height: 50px; }
+
+.plant-sm {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; }
+  .plant-sm .plantImg {
+    width: 100vw;
+    height: 250px;
+    background-image: url("../image/plant-bg-01.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; }
+  .plant-sm .plantText {
+    transform: translateX(0);
+    width: 90vw;
+    min-width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 10px; }
+    .plant-sm .plantText h6 {
+      width: 80%; }
+
+.plantMap {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-top: 100px; }
+  .plantMap .plantboxs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 300px;
+    width: 50vw;
+    margin-bottom: 100px; }
+    .plantMap .plantboxs .plantbox {
+      width: 200px;
+      height: 200px;
+      border: solid 5px white;
+      cursor: pointer; }
+      .plantMap .plantboxs .plantbox:hover {
+        border: solid 5px black; }
+      .plantMap .plantboxs .plantbox .img {
+        width: 100%; }
+      .plantMap .plantboxs .plantbox .morePlant {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 5;
+        cursor: auto; }
+        .plantMap .plantboxs .plantbox .morePlant .plantMoreContent .plantMoreText h3 {
+          text-align: center; }
+
+.morePlant-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse; }
+  .morePlant-bg .plantMoreContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vh;
+    background-color: #fff;
+    height: 70vh; }
+    .morePlant-bg .plantMoreContent img {
+      width: 80%; }
+    .morePlant-bg .plantMoreContent .plantMoreText {
+      overflow: scroll;
+      min-width: 500px;
+      width: 80%;
+      padding: 100px; }
+      .morePlant-bg .plantMoreContent .plantMoreText h3, .morePlant-bg .plantMoreContent .plantMoreText p {
+        margin: 0;
+        line-height: 50px; }
+
+.morePlant-sm {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll; }
+  .morePlant-sm .plantMoreContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    margin: 0; }
+    .morePlant-sm .plantMoreContent img {
+      width: 300px;
+      height: 300px;
+      margin-top: 80px; }
+    .morePlant-sm .plantMoreContent .plantMoreText {
+      margin-bottom: 100px;
+      min-width: 300px;
+      width: 80%; }

@@ -1,0 +1,82 @@
+html {
+  background-color: #2e7fab;
+  background-image: url(https://2017.awiclass.monoame.com/img/form_ground.svg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: 0 80%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+form {
+  padding: 30px 100px;
+  background-color: #3085b3;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  letter-spacing: 1px;
+  border-bottom: 5px solid #65d7fc;
+}
+form img {
+  width: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+form > * {
+  margin-bottom: 15px;
+}
+form h2 {
+  font-weight: normal;
+  text-align: center;
+  bottom: 20px;
+}
+form select, form input[type='radio'] {
+  appearance: none;
+}
+form .recommand {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  bottom: 20px;
+}
+form .recommand label {
+  margin-right: 40px;
+  margin-left: 5px;
+}
+form input, form textarea, form select {
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 0px;
+  opacity: 0.9;
+  outline: none;
+}
+form input::placeholder, form textarea::placeholder, form select::placeholder {
+  color: rgba(46, 127, 171, 0.4);
+}
+form input[type='radio'] {
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+form input[type='radio']:checked {
+  background-color: #65d7fc;
+  border-color: #65d7fc;
+}
+form button {
+  background-color: transparent;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

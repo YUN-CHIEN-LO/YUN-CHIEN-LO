@@ -1,0 +1,55 @@
+@font-face 
+    font-family: 'NotoSerifTC'
+    src: url('../font/NotoSerifTC-Medium.otf') format("opentype")
+
+// for big screen
+@media screen and (min-width: 614px)
+    h1
+        font-size: 4.5rem
+    h2
+        font-size: 3.5rem
+    h3
+        font-size: 2.3rem
+    h4
+        font-size: 1.8rem
+    h5
+        font-size: 1.6rem
+    h6
+        font-size: 1.3rem
+// for small screen
+@media screen and (max-width: 613px)
+    h1
+        font-size: 3.5rem
+    h2
+        font-size: 3rem
+    h3
+        font-size: 2.5rem
+    h4
+        font-size: 1.55rem
+    h5
+        font-size: 1.4rem
+    h6
+        font-size: 1rem
+$header-height: 200px
+*
+    // border: solid 1px #666666
+    font-family: 'NotoSerifTC'
+    position: relative
+    font-weight: lighter
+    letter-spacing: 5px
+    box-sizing: border-box
+#secHome, #secAbout, #secVidA, #secAbout-1, #secPaper, #secMorePaper, #secMoreMedia, #secPlant
+    // display: none !important
+
+html, body
+    margin: 0
+    padding: 0
+    height: auto
+section  
+    width: 100vw
+#secHome
+    height: 100vh
+    overflow: hidden
+#secPlant
+    width: 100vw
+

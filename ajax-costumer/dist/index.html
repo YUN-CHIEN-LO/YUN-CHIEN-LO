@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>YCL - ajax-costumer</title>
+  <link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form action="https://2017.awiclass.monoame.com/api/demo/feedback" method="post"><img src="https://i.imgur.com/M33l7HJ.png" alt=""/>
+  <h2>請幫助我們變的更好</h2>
+  <input name="name" placeholder="你的名字"/>
+  <select name="option">
+    <option value="" disabled="disabled" selected="selected">使用產品</option>
+    <option value="產品一">產品一</option>
+    <option value="產品二">產品二</option>
+    <option value="產品三">產品三</option>
+  </select>
+  <textarea name="comment" placeholder="使用心得" rows="8"></textarea>
+  <div class="recommand">
+    <input type="radio" name="recommand" value="yes"/>
+    <label>會推薦給朋友</label>
+    <input type="radio" name="recommand" value="no"/>
+    <label>不推薦</label>
+  </div>
+  <input type="hidden" name="json" value="true"/>
+  <div class="feedback"></div>
+  <button class="ajaxbtn">送出意見(Ajax)</button>
+</form>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

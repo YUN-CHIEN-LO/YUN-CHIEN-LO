@@ -1,0 +1,24 @@
+form(action="https://2017.awiclass.monoame.com/api/demo/feedback" method="post")
+  img(src="https://i.imgur.com/M33l7HJ.png", alt="")
+  h2 請幫助我們變的更好
+  input(name="name", placeholder="你的名字")
+  select(name="option")
+    option(value="" disabled selected) 使用產品
+    option(value="產品一") 產品一
+    option(value="產品二") 產品二
+    option(value="產品三") 產品三
+  textarea(
+    name="comment",
+    placeholder="使用心得",
+    rows="8"
+  )
+  .recommand
+    input(type="radio" name="recommand" value="yes")
+    label 會推薦給朋友
+    input(type="radio" name="recommand" value="no")
+    label 不推薦
+  input(type="hidden" name="json" value="true")
+  .feedback
+    
+  //- button 送出意見
+  button.ajaxbtn 送出意見(Ajax)

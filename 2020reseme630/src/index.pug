@@ -1,0 +1,145 @@
+navbar.navbar.navbar-default
+  .container-fluid#navcon
+    //- .navbar-header
+      a.navbar-brand(href="#") $
+    a.button-toggle(href="#") 三
+    ul.nav.navbar-nav.navbar-menu
+      li.active
+        a(href="#") 回首頁
+      li
+        a(href="#section1") 工作經歷
+      li
+        a(href="#section2") 網站成果
+      li
+        a(href="#section3") 實作技巧
+      li
+        a(href="#footer") 聯絡方式
+header.jumbotron#header
+  //- .image
+    img(src="https://i.imgur.com/Pkm3C4n.jpg", alt="")
+  .track.track1
+  .track.track2
+  .circles
+    .circle.circle1(data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);")
+    .circle.circle2(data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);")
+    .circle.circle3(data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);")
+    .circle.circle4(data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);")
+    .circle.circle5(data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);")
+    .circle.circle6(data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);")
+    .circle.circle7(data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);")
+    .circle.circleBlue
+  
+  .text
+    .textinner
+      .bar
+        .jumpingDot.jumpingDot1
+      h1 羅云謙
+      h2 Yun Chien LO
+      br
+      h5 國立清華大學 資訊工程學系
+      h5 連絡信箱：yunchienlo@gmail.com
+      .links
+        .link.linkf
+          i.fab.fa-facebook
+        .link.linkl(onclick='window.open("https://line.me/ti/p/8N6FRgHJKd")')
+          i.fab.fa-line
+        .link.linkg
+          i.fas.fa-envelope-square
+      .mailbox
+        button.cancel.cancelEmail
+          p x
+        span 信箱：
+          input.email#email(placeholder="yunchienlo@gmail.com" type="text" name="email") 
+        span 主題：
+          input.name#name(placeholder="Yun Chien LO" type="text")
+        span 內容：
+          textarea.content#content(placeholder="Hi! Nice to meet you!" )
+        button.sendBtn(onclick="sendemail();") 發送
+        .sended Message Sent!
+      .bar.bot
+      
+section#section1
+  .track.track3
+  .track.track4
+  .track.track5
+  .track.track6
+  .track.track7
+  .container
+    h1(data-bottom="transform: translateY(200px)" data-center="transform: translateY(0px)") 工作經歷
+    .br.long(data-bottom="transform: translateY(200px)" data-center="transform: translateY(0px)")
+      .jumpingDot.jumpingDot2
+    .jobbox(v-for="(job, id) in jobs.slice()")
+      .time
+        h5.date {{job.date}}
+        .line(v-if="id!=jobs.length-1")
+          .dot(data-bottom="transform: scale(0.5)" data-center="transform: scale(2)" data-top="transform: scale(0.5)")
+      .job(data-bottom="transform: translateX(50px)" data-center="transform: translateY(0px)")
+        button#viewImg(@click="tm(job.url)") 檢視作品
+        h3 {{job.company}}
+        .br
+        h4 {{job.position}}
+        h4 {{job.discription}}
+.imgboard
+  button.cancel#cancelImg
+    p x
+  img#imgB
+section#section2
+  .container
+    h1(data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)") 網站成果
+    .br.long(data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)")
+      .jumpingDot.jumpingDot2
+    .showWeb
+      .web(v-for="web in webs" data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)")
+        .imgbox
+          img(:src="web.img")
+          .goto(@click="tm(web.url)")
+        h5 {{web.title}}
+       
+section#section3
+  .container
+    h1(data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)") 實作技巧
+    .br.long(data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)")
+      .jumpingDot.jumpingDot2
+    .showSkill
+      h2 熟悉HTML、PUG、CSS排版、CSS動畫、SASS、Bootstrap、RWD、Javascript、jQuery、AJAX、Vue.js、Skrollr.js等相關js套件
+      h2 熟悉c++、python等程式語言並且熟悉程式邏輯、會使用git、linux系統、VSCode環境。
+      h2 熟悉Photoshop、Illustrator軟體操作
+      h2 具備英文聽說讀寫能力：托福95分、多益935分、全民英檢中高級複試通過
+      .skill(v-for="skill in skills")
+        .chart
+          .temp(:style="{transform: 'rotate('+ (-3.6*skill.percentage) + 'deg)'}")
+            .half
+          .cover
+          .cover2(data-bottom="transform: rotate(-80deg)" data-100-center="transform: rotate(90deg)"
+          data-top="transform: rotate(90deg)")
+          .perc {{skill.percentage}}%
+        .title {{skill.item}}
+    
+    
+        
+footer.jumbotron#footer
+  .track.track8
+  .track.track9
+  .container
+    h1(data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)") 聯絡方式
+    .br.long(data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)")
+      .jumpingDot.jumpingDot2
+    h5 連絡信箱：yunchienlo@gmail.com
+    .links
+      .link.linkf
+        i.fab.fa-facebook
+      .link.linkl(onclick='window.open("https://line.me/ti/p/8N6FRgHJKd")')
+        i.fab.fa-line
+      .link.linkg
+        i.fas.fa-envelope-square
+    .mailbox
+      button.cancel.cancelEmail
+        p x
+      span 信箱：
+        input.email#email(placeholder="yunchienlo@gmail.com" type="text" name="email") 
+      span 主題：
+        input.name#name(placeholder="Yun Chien LO" type="text")
+      span 內容：
+        textarea.content#content(placeholder="Hi! Nice to meet you!" )
+      button.sendBtn(onclick="sendemail();") 發送
+    .sended Message Sent!

@@ -1,0 +1,132 @@
+.plant-bg
+    width: 100vw
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    .plantImg
+        width: 100vw
+        height: 50vh
+        background-image: url("../image/plant-bg-01.jpg")
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        background-attachment: fixed
+    .plantText
+        transform: translateX(0)
+        width: 50vw
+        min-width: 300px
+        text-align: center
+        letter-spacing: 10px
+        line-height: 50px
+.plant-sm
+    width: 100vw
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    .plantImg
+        width: 100vw
+        height: 250px
+        background-image: url("../image/plant-bg-01.jpg")
+        background-repeat: no-repeat
+        background-position: center
+        background-size: cover
+        background-attachment: fixed
+    .plantText
+        transform: translateX(0)
+        width: 90vw
+        min-width: 300px
+        text-align: center
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
+        padding: 5px 10px
+        h6
+            width: 80%
+
+.plantMap
+    display: flex
+    justify-content: center
+    align-items: start
+    margin-top: 100px
+    .plantboxs
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        min-width: 300px
+        width: 50vw
+        margin-bottom: 100px
+        .plantbox
+            width: 200px
+            height: 200px
+            border: solid 5px white
+            cursor: pointer
+            &:hover
+                border: solid 5px black
+            .img
+                width: 100%
+            .morePlant
+                position: fixed
+                top: 0
+                left: 0
+                width: 100vw
+                height: 100vh
+                z-index: 5
+                cursor: auto
+                .plantMoreContent
+                    .plantMoreText
+                        h3
+                            text-align: center
+.morePlant-bg
+    background-color: rgba(black, 0.8)
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap-reverse
+    .plantMoreContent
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        width: 70vh
+        background-color: #fff
+        height: 70vh
+        img
+            // min-width: 500px
+            width: 80%
+        .plantMoreText
+            overflow: scroll
+            min-width: 500px
+            width: 80%  
+            padding: 100px
+            h3, p
+                margin: 0
+                line-height: 50px
+.morePlant-sm
+    background-color: white
+    width: 100vw
+    height: 100vh
+    overflow: scroll
+    // display: flex
+    // justify-content: center
+    // align-items: center
+    // flex-wrap: wrap-reverse
+    .plantMoreContent
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        background-color: #fff
+        margin: 0
+        img
+            width: 300px  
+            height: 300px  
+            margin-top: 80px
+        .plantMoreText
+            margin-bottom: 100px
+            min-width: 300px
+            width: 80%  
+            // h3, h6
+            //     margin: 0

@@ -1,0 +1,53 @@
+@keyframes load_ani
+    from
+        // background-color: red
+        transform: rotate(0deg)
+    to
+        // background-color: blue
+        transform: rotate(360deg)
+@keyframes dot_ani
+    from
+        background-color: #fff
+    to
+        background-color: black
+    
+#secLoad
+    z-index: 10000
+    background-color: #fff
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    .loading
+        width: 300px
+        height: 300px 
+        border:  solid 5px black
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 100%
+        animation-name: load_ani
+        animation-duration: 2.4s
+        animation-iteration-count: infinite
+        img
+            height: 80%
+            transform: rotate(180deg)
+    .dots
+        .dot
+            width: 10px
+            height: 10px
+            border: solid 1px black
+            border-radius: 100%
+            display: inline-block
+            margin: 10px
+        .dot1
+            animation: dot_ani 2.4s -0.8s infinite
+        .dot2
+            animation: dot_ani 2.4s 0s infinite
+        .dot3
+            animation: dot_ani 2.4s 0.8s infinite

@@ -1,0 +1,103 @@
+html, body {
+  background-color: #232334;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+}
+
+.game {
+  width: 500px;
+  min-height: 500px;
+  max-height: 500px;
+  border: 5px solid white;
+  position: relative;
+  overflow: hidden;
+}
+.game .time {
+  position: absolute;
+  color: wite;
+  top: 20px;
+  left: 20px;
+}
+.game .board {
+  background-color: #8dcf78;
+  z-index: 1;
+  border-radius: 5px;
+}
+.game .b1 {
+  background-color: #d97f25;
+}
+.game .ball {
+  background-color: white;
+  border-radius: 50%;
+}
+.game .info {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #232334;
+}
+.game .info .infotext {
+  font-size: 50px;
+  margin: 0;
+}
+.game button {
+  background-color: transparent;
+  border: solid 2px #ff5353;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.game button:hover {
+  background-color: #fff;
+  color: #ff5353;
+  border-radius: 10px;
+}
+.game button:focus {
+  outline: none;
+  background-color: #fff;
+  color: #ff5353;
+  border-radius: 10px;
+}
+
+.grade {
+  padding: 50px;
+  font-size: 30px;
+}
+
+.how {
+  display: flex;
+}
+.how .box {
+  width: 50px;
+  height: 50px;
+  border: solid 2px white;
+  margin: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.how .box i {
+  font-size: 30px;
+}
+.how .left {
+  transform: rotate(-90deg);
+}
+.how .right {
+  transform: rotate(90deg);
+}
+
+.isPressed {
+  background-color: #8dcf78;
+}

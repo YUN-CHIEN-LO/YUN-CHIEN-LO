@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>YCL - skill-page</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="title">
+  <div class="top">
+    <div class="bar topb"> </div>
+    <h3>靜態履歷</h3>
+    <div class="bar topb"></div>
+  </div>
+  <h1>Yun Chien Lo</h1>
+  <div class="bar bot"></div>
+</div>
+<div class="bottom">
+  <div class="leftbox">
+    <div class="imghead"><img src="https://i.imgur.com/Pkm3C4n.jpg" alt=""/></div>
+    <div class="info" id="personal">
+      <h3>PERSONAL</h3>
+      <div class="personal" v-for="(per, id) in pers">
+        <div class="partA">{{per.parta}}</div>
+        <div class="partB">{{per.partb}}</div>
+      </div>
+    </div>
+    <div class="info" id="skill">
+      <h3>SKILL</h3>
+      <div class="skill" v-for="(skill, id) in skills">
+        <div class="text">
+          <div class="text2">
+            <div class="item">{{skill.item}}</div>
+            <div class="percentage">{{skill.percentage}}%</div>
+          </div>
+          <div class="skillbar" :style="{width: skill.percentage+'%'}"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rightbox">
+    <div class="part">
+      <h1>簡歷</h1>
+      <div class="br"></div>
+      <p>我是一個喜愛藝術和設計的人，常常觀察身邊不同的人事物，並且轉化為我畫筆下的插圖。在就讀清大資工系的四年中，也學習的程式撰寫與程式邏輯，並且在空閒時間，透過線上課程自學網頁前端程式，希望未來可以結合科技呈現和藝術概念，作為不同專案的啟發。</p>
+      <div class="skillgbox">
+        <div class="skillgenre">
+          <p>平面設計</p>
+        </div>
+        <div class="skillgenre">
+          <p>網頁前端</p>
+        </div>
+        <div class="skillgenre">
+          <p>電繪插畫</p>
+        </div>
+      </div>
+    </div>
+    <div class="part" id="job">
+      <h1>工作經歷</h1>
+      <div class="br"></div>
+      <div class="job" v-for="(job, id) in jobs.slice()">
+        <div class="line" v-if="id!=jobs.length-1"></div>
+        <div class="date">{{job.date}}</div>
+        <div class="jobinfo">
+          <div class="jobtitle">{{job.company}} 「{{job.position}}」</div>
+          <div class="jobcontent">{{job.discription}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

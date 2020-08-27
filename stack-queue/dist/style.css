@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost&display=swap");
+* {
+  position: relative;
+  font-family: "Jost", sans-serif;
+}
+
+html, body {
+  margin: 0;
+  background-color: #222;
+  color: white;
+}
+
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.page .inputbox {
+  position: absolute;
+  top: 100px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  z-index: 5;
+}
+.page .inputbox .mode button {
+  width: 49%;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  height: 60px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: white;
+  background-color: transparent;
+}
+.page .inputbox .mode .modeOn {
+  background-color: #fff;
+  color: black;
+}
+.page .inputbox .mode #stack {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.page .inputbox .mode #queue {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.page .inputbox span input, .page .inputbox span button {
+  font-size: 20px;
+  width: 100px;
+  height: 50px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}
+.page .inputbox span input {
+  height: 25px;
+}
+.page .inputbox span input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 5px white;
+}
+.page .inputbox span #pop:hover {
+  box-shadow: 5px 5px #ed5140;
+  color: #ed5140;
+  border: 3px solid #ed5140;
+}
+.page .inputbox span #pop:active {
+  background-color: #ed5140;
+  color: #222;
+}
+.page .inputbox span #push {
+  margin-right: 10px;
+}
+.page .inputbox span #push:hover {
+  box-shadow: 5px 5px #60ba4c;
+  color: #60ba4c;
+  border: 3px solid #60ba4c;
+}
+.page .inputbox span #push:active {
+  background-color: #60ba4c;
+  color: #222;
+}
+
+.stack {
+  padding: 50px;
+  display: flex;
+  transition-duration: 0.1s;
+  flex-wrap: wrap;
+}
+
+.node {
+  width: 100px;
+  height: 100px;
+  border: solid 5px white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+.node .num {
+  font-size: 30px;
+}
+.node i {
+  position: absolute;
+  font-size: 30px;
+  display: none;
+}
+.node .fa-arrow-right {
+  right: -30px;
+}
+
+.error {
+  background-color: #ed5140;
+  padding: 60px 100px;
+  border-radius: 20px;
+  font-size: 50px;
+  display: none;
+}

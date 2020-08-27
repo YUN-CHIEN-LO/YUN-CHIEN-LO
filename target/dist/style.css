@@ -1,0 +1,127 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #eaeaea;
+}
+
+.target {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+[class^="cir"] {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+  background-color: white;
+}
+[class^="cir"].cir1 {
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+}
+[class^="cir"].cir2 {
+  width: 200px;
+  height: 200px;
+  z-index: 4;
+}
+[class^="cir"].cir3 {
+  width: 300px;
+  height: 300px;
+  z-index: 3;
+}
+[class^="cir"].cir4 {
+  width: 400px;
+  height: 400px;
+  z-index: 2;
+}
+[class^="cir"].cir5 {
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+  border: 10px solid white;
+  box-shadow: 0px 0px 50px;
+}
+[class^="cir"]:nth-child(2n+1) {
+  background-color: #fe5b45;
+}
+[class^="cir"]:active {
+  filter: brightness(80%);
+  transition: 0s;
+}
+[class^="cir"]:before {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  top: 20px;
+}
+
+.infos {
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+  z-index: 10;
+}
+.infos h1, .infos h3 {
+  margin: 0;
+}
+.infos h1 {
+  font-size: 50px;
+}
+.infos h3 {
+  opacity: 0.5;
+}
+
+.target.moving {
+  animation: moving 1s infinite alternate;
+}
+@keyframes moving {
+  0% {
+    transform: translateX(-200px);
+  }
+  100% {
+    transform: translateX(200px);
+  }
+}
+.mouse {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+}
+.mouse:before, .mouse:after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 8px;
+  background-color: #222;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.mouse:before {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.spot {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,203 @@
+$c_pur: #9399ff
+$c_pin: #ff80b0
+$c_blu: #a9fffd
+$c_ski: #ffc7c7
+$c_dar: #3b43c4
+@import url('https://fonts.googleapis.com/css?family=Work+Sans|Zhi+Mang+Xing&display=swap')
+*
+  font-family: 'Work Sans', sans-serif,'Zhi Mang Xing', cursive, 微軟正黑體
+  // border: solid 1px #666
+  cursor: default
+  user-select: none
+  // debug
+  section
+    // display: none
+  #sec_3
+    display: block
+  
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 ,.h5, .h6
+  font-weight: bold
+html
+  scroll-behavior: smooth
+ 
+body
+  height: 2000px
+
+
+header.jumbotron
+  margin: 0
+  height: 100vh
+  background-image: linear-gradient($c_pin,$c_ski)
+  color: white
+  text-align: center
+  h1
+    font-family: 'Zhi Mang Xing', cursive
+    padding-top: 150px
+    font-size: 200px
+    &:hover
+      cursor: pointer
+    &:active
+      animation: splash 5s normal forwards ease-in-out
+
+      
+  h4
+    font-weight: light
+  .bottom_img
+    transform: translate(-50%, -50%)
+    position: absolute
+    top: 90%
+    left: 50%
+section#sec_1
+    height: 100vh
+    background-image: linear-gradient($c_ski, $c_blu)
+    padding-top: 100px
+    h1
+      color : white
+      font-size: 100px
+    .col-sm-5.img
+      z-index: 2
+      img
+        hight: 100%
+        float: right
+        transform: translate(0%, 10%)
+    
+    .col-sm-7.text
+      z-index: 3
+      padding: 20px
+      margin-top: 20px
+      font-size: 23px
+  
+section#sec_2
+  
+  background-image: linear-gradient($c_blu, $c_pur, $c_blu)
+  padding-top: 100px
+  h1
+    color : white
+    font-size: 100px
+  h4 
+    font-size: 23px
+  .col-sm-6
+    margin-top: 20px
+    overflow: hidden
+    .left_block
+      float: right
+    .right_block
+      float: left
+    .img_frame
+      transition-duration: 0.3s
+      max-height: 400px
+      max-width: 400px
+      overflow: hidden
+      img
+        width: 100%
+    .text
+      transition-duration: 0.3s
+      max-width: 400px
+      max-height: 350px
+      padding: 10%
+      position: absolute
+      top: 100px
+      color: white
+      opacity: 0
+      overflow: scroll
+      h4
+        margin: 50px 0px
+    &:hover
+      .img_frame
+        filter: brightness(50%)
+      .text
+        opacity: 1
+        top: 0px
+section#sec_3
+  background-image: linear-gradient($c_blu, $c_ski)
+  padding-top: 200px
+  img
+    width: 100%
+    margin-top: 100px
+  h1
+    color : white
+    font-size: 100px
+  .col-md-2.col-sm-4
+    margin-top: 20px 
+    padding: 10px
+    text-align: center
+    color: #333
+    font-size: 70px
+    transition-duration: 0.3s
+    p
+      font-size: 15px 
+    &:hover
+      margin-top: 0px
+      color: rgba(white, 0.9)
+footer.jumbotron
+  margin: 0
+  height: 100vh
+  background-image: linear-gradient($c_ski, $c_pin)
+  color: white
+  text-align: center
+  overflow: hidden
+  h1
+    font-family: 'Zhi Mang Xing', cursive
+    padding-top: 150px
+    font-size: 200px
+  h4
+    font-weight: light
+  .footer_img
+    width: 100%
+    transform: scale(1.3) translateY(30px)
+    
+nav.navbar#nav
+  z-index: 5
+  position: fixed
+  width: 100%
+  min-height: 70px
+  background-color: rgba(white, 0)
+  transition-duration: 0.3s
+  #navtoggle
+    background-color: transparent
+    border: solid 2px #333
+    padding: 5px 10px
+    color: #333333
+    display: none
+    
+  a
+    color: #333333
+    padding: 10px 40px
+    &:hover
+      text-decoration: none
+      color: white
+  i.fas.fa-home
+    font-size: 30px
+  .container-fluid
+
+    .navbar-header
+      padding: 10px 40px
+      &:hover
+        background-color: #333333
+    ul
+      li
+        display: inline-block
+        float: none
+        padding: 10px 
+        margin-left: 20px
+        transition: 0.3s
+        &:hover
+          background-color: #333333
+          cursor: pointer
+          a
+            color: white
+canvas#canvas
+  position: fixed
+  
+  
+@keyframes splash
+    from 
+        transform: scale(1)
+    
+    50% 
+        opacity: 1
+        transform: scale(1.1, 1.1)
+    
+    to 
+        transform: scale(1)
+    

@@ -1,0 +1,162 @@
+.paper-btn {
+  padding: 10px 20px;
+  text-align: center;
+  margin: 10px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: solid 3px black;
+  border-radius: 10px; }
+  .paper-btn:hover {
+    background-color: #fff;
+    color: black; }
+
+.paper-bg {
+  display: flex; }
+  .paper-bg .paperText, .paper-bg .paperImg {
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden; }
+  .paper-bg .paperImg .box {
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden; }
+    .paper-bg .paperImg .box img {
+      height: 100%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%; }
+  .paper-bg .paperText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .paper-bg .paperText h1, .paper-bg .paperText h6 {
+      width: 30vw;
+      min-width: 300px;
+      margin: 10px; }
+    .paper-bg .paperText .text {
+      height: 50vh; }
+      .paper-bg .paperText .text h6 {
+        margin: 0;
+        height: 50vh;
+        overflow: scroll; }
+
+.paper-sm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto; }
+  .paper-sm .paperImg {
+    width: 100vw;
+    height: 250px; }
+    .paper-sm .paperImg .box {
+      width: 100%;
+      height: 250px;
+      overflow: hidden; }
+      .paper-sm .paperImg .box img {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+  .paper-sm .paperText {
+    min-width: 300px;
+    width: 90vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px; }
+    .paper-sm .paperText .text {
+      margin: 0;
+      width: 80%; }
+
+#secMorePaper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  overflow: scroll;
+  background-image: url("../image/morepaper-01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 100px 0px;
+  z-index: 99; }
+  #secMorePaper .work {
+    margin: 20px; }
+    #secMorePaper .work .date, #secMorePaper .work .title {
+      display: inline-block; }
+    #secMorePaper .work .date {
+      border: solid 2px black;
+      border-radius: 5px;
+      display: inline-block;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-align: center;
+      height: 50px;
+      margin: 0;
+      margin-bottom: 10px;
+      margin-left: 30px; }
+    #secMorePaper .work .title {
+      margin: 0;
+      display: inline-block;
+      width: 30vw;
+      min-width: 300px;
+      margin-left: 30px;
+      padding-left: 20px;
+      border-left: solid 3px black; }
+
+.leave-btn {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 10%;
+  top: 150px;
+  border: solid 3px black;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  z-index: 100;
+  background-color: #fff; }
+  .leave-btn:hover {
+    transform: rotate(270deg); }
+  .leave-btn img {
+    width: 50%; }
+
+#secMoreMedia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin: 50px 0px; }
+  #secMoreMedia h1 {
+    width: 100vw;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px; }
+  #secMoreMedia .media_box {
+    width: 100%;
+    max-width: 600px;
+    height: 337.5px;
+    margin: 20px; }
+    #secMoreMedia .media_box .swiper-wrapper .swiper-slide {
+      overflow: hidden; }
+      #secMoreMedia .media_box .swiper-wrapper .swiper-slide img {
+        width: 100%; }
+    #secMoreMedia .media_box .swiper-button-prev, #secMoreMedia .media_box .swiper-button-next {
+      color: black; }
+    #secMoreMedia .media_box .swiper-pagination-bullet-active {
+      background-color: black; }

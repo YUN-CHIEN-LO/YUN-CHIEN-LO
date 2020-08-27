@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title Paper Plant
+        
+        //- base(href="/")
+       
+        script(src="js/jquery-3.1.5.min.js")
+        script(src="js/popper.js")
+        script(src="js/vue.min.js")
+        script(src="js/swiper-bundle.js")
+        script(src="js/swiper-bundle.min.js")
+        script(src="js/skrollr.js")
+        link(rel="stylesheet", href="css/swiper-bundle.css")
+        link(rel="stylesheet", href="css/swiper-bundle.min.css")
+        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="css/nav.css")
+        link(rel="stylesheet", href="css/secHome.css")
+        link(rel="stylesheet", href="css/secAbout.css")
+        link(rel="stylesheet", href="css/secPaper.css")
+        link(rel="stylesheet", href="css/secPlant.css")
+        link(rel="stylesheet", href="css/secInfo.css")
+        link(rel="stylesheet", href="css/secLoad.css")
+        link(rel="text/css", href="bootstrap-4.3.1-dist/css/bootstrap.min.css")
+        script(src="bootstrap-4.3.1-dist/js/bootstrap.min.js")
+        
+    body
+        .navbar
+            .nav_header
+                img(src="image/icon-03.png", alt="")#icon
+            .nav_list
+                .nav_item#goHome 首頁
+                .nav_item#goAbout 關於展覽
+                .nav_item#goPaper 關於紙物
+                .nav_item#goPlant 植物介紹
+                .nav_item#goInfo 展場資訊
+        section#secHome
+            .block#bgimage
+                img(src="image/home-01.png", alt="")#img01
+            .block#fgcontent
+                .blockrow
+                    .textbox.textbox1
+                        img(src="image/home-02.png", alt="")
+                    .textbox.textbox2
+                        img(src="image/home-03.png", alt="")
+                .textbox.textbox3
+                    img(src="image/home-04.png", alt="")#img04
+                .textbox.textbox4
+                    img(src="image/home-05.png", alt="")#img05
+        section#secAbout
+            .aboutImg
+            .aboutText
+                h1  關於展覽
+                .th6 
+                    h6 台灣可稱為蕨類王國<br>全世界的蕨類有39科<br>台灣就包含35科。
+                    h6#aboutinfo 藝術家Wuba沉浸剪紙藝術10年<br>擅長以蕨類植物作為創作題材<br>讓不易照顧的蕨類植物以紙質的方式重現生活中<br>也讓逐漸式微的剪紙工藝得以延續下去
+        section#secVidA
+            h1  布展過程
+            .vidframe 
+                iframe(src="https://www.youtube.com/embed/uzUoWhlvyDU" name="mainframe" id="mainframe" width="100%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0")
+        section#secAbout-1.about-1-sm
+            .about1Img
+            .about1Text 
+                h6 這次紙植物展覽包含台灣特有蕨類16種，其中台北麟蓋蕨及箭葉鳳尾蕨在1F知識集李家維教授的方舟之島有實體標本展出。
+                h6 圖書館誠摯邀請大家來館欣賞Wuba帶來她的剪紙工藝-紙植物展。
+        section#secPaper
+            .paperImg
+                .box
+                    img(src="image/paper-01.jpg", alt="")
+            .paperText
+                h1  關於紙物
+                .text 
+                    h6 &nbsp&nbsp&nbsp&nbsp紙物團隊的核心成員Wuba Yang從事剪紙創作已有十年的時間，特別擅長剪製動植物圖案，為快樂與分享⽽剪。紙物的第一個計畫為紙植物系列，在2017年開始以臺灣蕨類為靈感，回應台灣的「蕨類王國」之名，用紙材重現數種台灣常見及獨有的蕨類，藉由剪紙技巧與立體塑形展現各類植物不同姿態的美感，打造永遠長青的紙植物，同時避免活體植物的採集，希望讓更多人能夠透過剪紙來認識蕨類之美，也讓不容易照顧的蕨類能以紙質重現在生活之中。跳脫出傳統剪紙的既定印象，讓逐漸式微的剪紙藝術以新的面貌延續下去。
+                .paper-btn#work-btn &nbsp近期作品
+                .paper-btn(onclick="window.location.href='http://www.paperobject.com'" ) &nbsp更多資訊
+            .leave-btn#leave_btn
+                img(src="image/X-btn-01.png", alt="")
+        section#secMorePaper
+            h1  近期作品
+            .work(v-for="(work, id) in works")
+                h6.date &nbsp{{work.date}}
+                h6.title {{work.title}}
+        section#secMoreMedia
+            h1  相關照片
+            .media_box#media_photo.swiper-container 
+                .swiper-wrapper
+                    .swiper-slide(v-for="photo in photos")
+                        img(v-bind:src="photo.url", alt="")
+                .swiper-pagination
+                .swiper-button-prev
+                .swiper-button-next
+                //- .swiper-scrollbar
+            h1 相關影片
+            .media_box#Media_video 
+                iframe(src="https://www.youtube.com/embed/uzUoWhlvyDU" name="mainframe2" id="mainframe2" width="100%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0")
+         
+        section#secPlant
+            .plantImg
+            .plantText
+                h1 植物介紹
+            .plantMap
+                .plantboxs
+                    .plantbox(v-for="(plant, id) in plants")
+                        img(v-bind:src="plant.img", alt="" onclick="$(this).siblings().slideDown()").img
+                        .morePlant#morePlant
+                            .plantMoreContent
+                                img(v-bind:src="plant.img", alt="")
+                            .plantMoreContent
+                                .plantMoreText
+                                    h3 {{plant.name}}
+                                    p(v-if="plant.nickname") 別名：{{plant.nickname}}
+                                    p(v-if="plant.scientific") 學名：{{plant.scientific}}
+                                    p(v-if="plant.condition") 生長環境：{{plant.condition}}
+                                    p(v-if="plant.root") 根莖：{{plant.root}}
+                                    p(v-if="plant.petiole") 葉柄：{{plant.petiole}}
+                                    p(v-if="plant.leaf") 葉片：{{plant.leaf}}
+                                    p(v-if="plant.spore") 孢子囊群：{{plant.spore}}
+                            .leave-btn(onclick="$(this).parent().slideUp()")
+                                img(src="image/X-btn-01.png", alt="")
+        section#secInfo.info-bg
+            .infobox.infoImg
+                img(src="image/info-01.jpg", alt="")
+            .infobox.gallery
+                h1  展場資訊
+                h6  展名：紙植物-台灣特有及稀有植物剪紙展
+                h6  作者：Wuba Yang
+                h6  展期：6/1 ~ 8/21
+                h6  地點：總圖書館5F-6F藝想空間
+            .infobox.infoImg
+                img(src="image/info-02.jpg", alt="")
+            .infobox.footer
+                .infoText.left
+                    .link.linkfb(onclick="window.location.href='http://www.paperobject.com'")
+                        .fb
+                            img(src="image/info-fb-01.png", alt="")
+                        h6 紙物
+                    .link.linkfb(onclick="window.location.href='https://www.facebook.com/NTHULIB'")
+                        .fb
+                            img(src="image/info-fb-01.png", alt="")
+                        h6 清大圖書館
+                    .link.linklib(onclick="window.location.href='http://www.lib.nthu.edu.tw/'")
+                        .lib
+                            img(src="image/info-text-03.png", alt="")
+                .infoText.right
+                    .imgbox.imgbox1
+                        img(src="image/info-text-01.png", alt="")
+                    .imgbox.imgbox1
+                        img(src="image/info-text-04.png", alt="")
+                    .imgbox.imgbox2
+                        img(src="image/info-text-02.png", alt="")
+                    .imgbox.imgbox2
+                        img(src="image/info-text-05.png", alt="")
+        section#secLoad
+            .loading
+                img(src="image/icon-01.png", alt="")
+            h3 Loading
+            .dots
+                .dot.dot1
+                .dot.dot2
+                .dot.dot3
+                    
+
+                
+    script(src="js/script.js")
+    script(src="js/morePaper-vue.js")

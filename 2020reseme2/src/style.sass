@@ -1,0 +1,543 @@
+$colorBlue: #0c4475
+$colorRed: #e55a54
+=size($w, $h:$w)
+  width: $w
+  height: $h
+=flex($j:center, $a:center)
+  display: flex
+  justify-content: $j
+  align-items: $a
+=trackcss($bz, $bd, $t, $l, $s, $sz)
+  +size($bz)
+  border: $bd solid white
+  top: $t
+  left: $l
+  animation: tracking $s infinite 
+  &:after
+    +size($sz)
+=jumpdot($s1, $s2)
+  animation: dotMoving $s1 infinite alternate ease-in-out
+  &:after
+    animation: dotJumping $s2 infinite alternate linear
+button
+  &:focus
+    outline: none
+a:link, a:visited, a:hover, a:active
+  text-decoration: none
+.allflex
+  +flex(felx-start, felx-start)
+button.cancel
+  background-color: $colorRed
+  padding: 5px 10px
+  position: absolute
+  right: 0px
+  top: 0px
+  border-radius: 50%
+  cursor: pointer
+  margin: 30px
+  p
+    font-size: 20px
+    margin: 0
+    padding-bottom: 3px
+    padding-left: 3px   
+*
+  // border: 1px solid #000
+  position: relative
+  color: white
+  font-weight: 300
+  letter-spacing: 5px
+html, body
+  margin: 0
+  padding: 0
+  background-color: $colorBlue
+  overflow-x: hidden
+  border-bottom: 50px solid #222
+  scroll-behavior: smooth
+section, footer
+  .container
+    h1
+      text-align: center
+      font-size: 50px  
+      margin: 0
+      padding-top: 100px
+    .br.long
+      margin-bottom: 2rem
+      margin-top: 2rem
+      +size(100%, 5px)
+      background-color: #fff
+navbar.navbar.navbar-default
+  z-index: 2
+  position: fixed
+  // background-color: $colorBlue
+  .container-fluid
+    +size(100vw, 100px)
+    margin: 0
+    // background-color: $colorRed
+    // +flex(space-between, center)
+    font-size: 20px 
+    .navbar-header
+      margin-left: 20px
+    .button-toggle
+      position: absolute
+      margin: 30px
+      z-index: 20
+      +flex()
+    ul.navbar-menu
+      display: inline-block
+      position: absolute
+      right: 0
+      +flex()
+      margin-right: 20px
+      list-style-type: none
+      li
+        margin: 10px
+.nav_sm
+  position: relative !important
+  right: auto
+  flex-direction: column
+  background-color: $colorRed
+  margin: 0 !important
+  
+  
+header.jumbotron#header
+  min-height: 100vh
+  flex-direction: row-reverse
+  +flex()
+  flex-wrap: wrap
+  background-color: $colorBlue
+  margin: 0
+  .circles
+    position: fixed
+    +flex(space-between, center)
+    .circle
+      +size(200px)
+      background-color: $colorRed
+      border-radius: 50%
+      margin: 0px 20px
+    @keyframes dot_sizing
+        0%
+          +size(100px)
+          // margin: 0px 120px
+        50%
+          +size(200px)
+        100%
+          +size(100px)
+          // margin: 0px 20px
+    .circle1
+      animation: dot_sizing 14s infinite alternate
+      animation-delay: -14s
+    .circle2
+      animation: dot_sizing 14s infinite alternate
+      animation-delay: -12s
+    .circle3
+      animation: dot_sizing 14s infinite alternate
+      animation-delay: -10s
+    .circle4
+      animation: dot_sizing 14s infinite alternate
+      animation-delay: -8s
+    .circle5
+      animation: dot_sizing 14s infinite alternate
+      animation-delay: -6s
+    .circle6
+      animation: dot_sizing 14s infinite alternate
+      animation-delay: -4s
+    .circle7
+      animation: dot_sizing 14s infinite alternate
+      animation-delay: -2s
+    .circleBlue
+      position: absolute
+      background-color: $colorBlue
+      bottom: 50%
+      left: 0
+      transform: translateY(50%)
+      animation: dot_moving 20s infinite
+      @keyframes dot_moving
+        0%
+          left: -10vw
+          +size(50px)
+        50%
+          +size(100px)
+        100%
+          left: 110vw
+          +size(50px)
+      
+  .image
+    
+    flex: 1
+    border-radius: 50%
+    overflow: hidden
+    border: 5px solid $colorRed
+    // animation: imgAni 3s infinite alternate
+    // animation-delay: 0.2s
+    @keyframes imgAni
+      95%
+        border: 5px solid $colorRed
+      100%
+        border: 5px solid $colorRed
+    img
+      +size(auto, 100%)
+      position: absolute
+      height: 100%
+      transform: translateX(-50%)
+      left: 50%
+  .text
+    flex: 2
+    +flex()
+    .textinner
+      .bar
+        +size(500px, 5px)
+        background-color: $colorRed
+        // animation: barAni 5s infinite alternate
+        @keyframes barAni
+          95%
+            +size(500px, 5px)
+          100%
+            +size(700px, 5px)
+      .bar.bot
+        animation-delay: 0.1s
+      h1, h2, h5
+        margin: 0
+.links
+  +flex(space-around, center)
+  .link
+    animation: jumping 3s infinite alternate
+    i
+      font-size: 50px
+      margin-top: 50px
+      cursor: pointer
+    @keyframes jumping
+      90%
+        top: 0
+        filter: drop-shadow(0px 10px 20px rgba(black, 0.3))
+      100%
+        top: -30px
+        filter: drop-shadow(0px 120px 50px rgba(black, 0.3))
+  .link.linkf
+    animation-delay: 0.1s
+  .link.linkl
+    animation-delay: 0.2s
+  .link.linkg
+    animation-delay: 0.3s
+.sended
+  font-size: 30px
+  color: $colorRed
+  text-align: center
+  font-weight: 900
+  display: none
+  button.cancel
+    position: absolute
+    right: 0
+    top: 0
+.mailbox
+  +flex(felx-start, felx-start)
+  flex-direction: column
+  display: none
+  max-width: 500px
+  margin-top: 50px
+  .cancelEmail
+    position: absolute
+    right: 0px
+    top: -50px
+    z-index: 5
+  span
+    margin: 10px
+    input, textarea
+      color: #222
+      padding: 10px
+      border-radius: 5px 
+      width: 100%
+      box-sizing: border-box
+      margin: 0
+      margin-top: 5px
+    textarea
+      height: 300px
+  button.sendBtn
+    cursor: pointer
+    background-color: $colorRed
+    padding: 10px
+    border-radius: 5px 
+    width: 100%
+    box-sizing: border-box
+    margin-top: 30px
+   
+section#section1
+  .container
+    .jobbox
+      display: flex
+      justify-content: center
+      // width: 500px
+      .time
+        margin-right: 0.5rem
+        .date
+          text-align: center
+          border: 2px solid $colorRed
+          background-color: $colorBlue
+          padding: 0.5rem
+          display: inline-box
+          z-index: 2
+        .line
+          z-index: 1
+          height: 100%
+          background-color: $colorRed
+          width: 1px
+          position: absolute
+          top: 30px
+          left: 50%
+          border: 1px solid $colorRed
+          transform: translateX(-50%)
+          +flex()
+          .dot
+            background-color: $colorRed
+            +size(20px)
+            min-width: 20px
+            border-radius: 50%
+            // position: absolute
+            // top: 50%
+            // left: 50%
+            // transform: translateX(-50%)
+      .job
+        width: 50%
+        min-width: 300px
+        max-width: 500px
+        margin: 1.5rem  
+        margin-top: 2rem
+        padding-bottom: 2.5rem
+        padding-top: 0rem
+        button#viewImg
+          position: absolute
+          top: 0
+          right: 0
+          background-color: $colorRed
+          padding: 10px 20px
+          border-radius: 5px
+          cursor: pointer
+          z-index: 10
+.imgboard
+  position: fixed
+  top: 0
+  left: 0
+  +size(100vw, 100vh)
+  background-color: rgba(black, 0.5)
+  z-index: 5
+  display: none
+  overflow: scroll
+  button.cancel
+    position: fixed
+    z-index: 10
+  img
+    height: 80%
+    padding: 50px
+    position: absolute
+    top: 0
+    left: 0
+    // transform: translate(-50%, -50%)
+    
+
+.track
+    border-radius: 50%
+    border: 1px solid white
+    position: absolute
+    transform: translate(-50%, -50%) 
+    &:after
+      content: ''
+      border-radius: 50%
+      background-color: #fff
+      position: absolute
+      left: 50%
+      transform: translate(-50%, -50%)
+    @keyframes tracking
+      0%
+        transform: translate(-50%, -50%) rotate(0deg)
+      100%
+        transform: translate(-50%, -50%) rotate(360deg)  
+.track1
+  +trackcss(400px, 1px, 0px, 100%, 7s, 50px)
+.track2
+  +trackcss(400px, 1px, 0px, 100%, 5s, 20px)
+  &:after
+    left: 0%
+    top: 50%
+    
+.track3
+  +trackcss(300px, 1px, 0px, 0px, 10s, 20px)
+.track4
+  +trackcss(500px, 1px, 50%, 100%, 5s, 50px)
+.track5
+  +trackcss(500px, 1px, 50%, 100%, 5s, 20px)
+  &:after
+    left: 0%
+    top: 50%
+.track6
+  +trackcss(500px, 1px, 50%, 100%, 5s, 30px)
+  animation-delay: 1s
+  &:after
+    left: 50%
+    top: 0%
+.track4
+  +trackcss(300px, 1px, 100%, 0%, 5s, 20px)
+.track8
+  +trackcss(100px, 1px, 50%, 0%, 5s, 20px)
+.track9
+  +trackcss(300px, 1px, 0%, 100%, 5s, 20px)
+.jumpingDot
+  position: absolute
+  left: 0
+  &:after
+    content: ''
+    position: absolute
+    bottom: 0
+    // left: 0
+    +size(20px)
+    background-color: #fff
+    border-radius: 50%
+  @keyframes dotMoving
+    0%
+      left: 0
+    50% 
+      left: 100%
+    100%
+      left: 0%
+  @keyframes dotJumping
+    0%
+      bottom: -5px
+      height: 15px
+    10%
+      bottom: 10px
+      height: 20px
+    50%
+      bottom: 50px
+      height: 20px
+    90%
+      bottom: 10px
+      height: 20px
+    100%
+      bottom: -5px
+      height: 15px
+.jumpingDot1
+  +jumpdot(8s, 0.8s)
+.jumpingDot2
+  +jumpdot(20s, 0.8s)
+section#section2
+  .container
+    .showWeb
+      +flex()
+      margin-right: auto
+      margin-left: auto
+      flex-wrap: wrap
+      max-width: 70vw
+      .web
+        margin: 20px
+        // overflow: hidden
+        h5
+          margin: 10px
+          text-align: center
+          font-size: 20px
+        .imgbox
+          +size(300px, 200px)
+          overflow: hidden
+          img
+            +size(auto, 100%)
+            transform: translateX(-50%)
+            left: 50%
+          .goto
+            +size(100%)
+            position: absolute
+            top: 0
+            cursor: pointer
+            background-color: rgba(black, 0.1)
+            &:hover
+              background-color: rgba(white, 0.1)
+section#section3
+  .container
+    .showSkill
+      margin-right: auto
+      margin-left: auto
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      max-width: 70vw
+      h2
+        // background-color: $colorRed
+        padding: 20px
+        border-radius: 10px
+        width: 100%
+      .skill
+        margin: 40px 20px
+        .title
+          text-align: center
+          margin: 10px
+          font-size: 20px
+        .chart
+          +size(150px)
+          border-radius: 50%
+          overflow: hidden
+          .cover2
+            background-color: $colorRed
+            position: absolute
+            top: 0
+            right: 0
+            transform-origin: center left
+            +size(50%, 100%)
+          .cover
+            +size(50%, 100%)
+            position: absolute
+            top: 0
+            background-color: rgba($colorRed, 1)
+            // background-color: black
+          .temp
+            +size(100%)
+            background-color: $colorRed
+            border-radius: 50%
+            overflow: hidden
+            // transform: rotate(-180deg)
+            .half
+              +size(50%, 100%)
+              // float: right
+              background-color: $colorBlue
+          .perc
+            font-size: 30px
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+          
+#footer
+  +size(100vw, auto)
+  background-color: #222
+  padding-bottom: 50px  
+  position: absolute
+  bottom: 0
+  .container
+    text-align: center
+    h1
+      font-size: 30px
+    .br
+      height: 1px
+    .links, .mailbox
+      max-width: 50vw
+      margin-right: auto
+      margin-left: auto
+@media only screen and (max-width: 700px)
+  // small
+  header.jumbotron#header
+    text-align: center
+    .image
+      display: none 
+    .text
+      margin: 10px 0px
+      .textinner
+        .bar
+          margin: 30px 0px
+@media only screen and (min-width: 710px)
+  // big
+  header.jumbotron#header
+    .text
+      margin: 100px 100px
+      margin-right: 20px
+      .textinner
+        .bar
+          margin: 30px 0px
+        h1
+          font-size: 80px
+#header, #section1, #section2, #section3
+  // display: none !important

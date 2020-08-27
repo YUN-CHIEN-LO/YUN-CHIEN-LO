@@ -1,0 +1,214 @@
+$color_blue: #63B7AF
+$color_tea: #fcdb99
+$color_black: #35495e
+
+*
+  font-family: 微軟正黑體
+  // border: solid 1px #666
+  // debug
+  header,section
+    // display: none
+  section#sec_4
+    display: block
+    
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 ,.h5, .h6
+  font-weight: bold
+html
+  scroll-behavior: smooth
+body
+  // height: 1000px
+  
+header.jumbotron
+  height: 100vh
+  background-image: url(https://image.insider.com/5d38c7f036e03c130541a351?width=1100&format=jpeg&auto=webp)
+  background-size: cover //背景左右撐滿
+  // background-position: center
+  background-attachment: fixed //背景固定
+  text-align: center
+  margin-bottom: 0px
+  .container
+    color: #333
+    padding: 200px 0px
+    letter-spacing: 10px
+    h1
+      font-size: 90px
+      padding: 10px
+    hr
+      max-width:  100px
+      border: solid 5px $color_blue
+    h4
+      font-size: 30px
+      color: rgba(#333, 0.7)
+      
+#sec_1
+    background-color: $color_blue
+    padding: 70px 0px
+    overflow: hidden
+    .container
+      .col-md-5.col-sm-12.img
+        min-height: 200px 
+        margin-bottom: 20px
+        background-image: url(https://cdn.hk01.com/di/media/images/3106067/org/3ff2202d1eab51f70b1e622e90c050ad.jpg/5x721CWl8mj7GxNso2gi3Mz3cFefwwrp0nfM0NJ3zNA?v=w1920)
+        background-size: cover
+        background-position: center
+      hr
+        border: solid 2px
+        margin_bottom: 20px
+      p
+        padding: 30px
+      h1
+        margin-top: 20px
+        text-align: center
+      
+#sec_2
+  padding: 80px 0px
+  h1
+    margin-top: 20px
+  hr
+    border: solid 2px
+    margin_bottom: 20px
+  .col-md-4.col-sm-6
+    padding: 20px
+  .img_wrap
+    margin-bottom: 20px
+    height: 300px
+    overflow: hidden
+    img
+      width: 130%
+    img.img2
+      transform: translateY(-20%)
+    img.img3
+      height: 130%
+      width: auto
+      transform: translateX(-15%)
+      
+section#sec_3
+    background-color: $color_black
+    color: $color_tea
+    overflow: hidden
+    .col-md-5.col-sm-12#img_wrap_1
+      height: 450px
+      img
+        height: 130%
+        position: absolute
+        top: 0px
+        left: 50%
+        transform: translateX(-50%)
+      
+    .col-md-7.col-sm-12
+      z-index: 1
+      background-color: $color_black
+      padding: 50px 30px
+      text-align: center
+      hr
+        border: solid 2px
+      i
+        font-size: 60px
+        margin: 30px
+      h4
+        font-weight: normal
+      p
+        margin-top: 30px
+        text-align: left
+section#sec_4
+    background-color: $color_blue
+    margin: 0
+    overflow: hidden
+    h1
+      margin-top: 20px
+      text-align: center
+    .col-md-5.col-sm-12#img_wrap_2
+      height: 350px
+      img
+        height: 130%
+        position: absolute
+        top: 0px
+        left: 50%
+        transform: translateX(-50%)
+    .col-md-7.col-sm-12
+      background-color: $color_blue
+      padding: 40px 30px
+      hr
+        border: solid 2px
+        margin_bottom: 20px
+      p
+        padding: 30px
+footer.jumbotron
+  height: 800px
+  background-image: url(https://image.insider.com/5d38c7f036e03c130541a351?width=1100&format=jpeg&auto=webp)
+  background-attachment: fixed //背景固定
+  background-size: 100% //背景左右撐滿
+  // background-attachment: fixed //背景固定
+  text-align: center
+  margin-bottom: 0px
+  .container
+    color: #333
+    padding: 50px 0px
+    letter-spacing: 10px
+    input
+      margin: 50px
+      width: 500px
+      margin-right: auto
+      margin-left: auto
+      background-color: rgba(#333, 0.7)
+      transition-duration: 0.3s
+      &:focus
+        background-color: #fff
+        box-shadow: none
+        border: none
+    hr
+      border: solid 2px $color_blue
+      width: 100px
+    .btn.btn-default
+      background-color: rgba(#333, 0.7)
+      color: white
+      padding: 10px 20px  
+      transition-duration: 0.3s
+      &:hover
+        padding: 10px 40px
+        background-color: $color_blue
+      
+nav.navbar#nav
+  z-index: 2
+  position: fixed
+  width: 100%
+  min-height: 70px
+  background-color: #fff
+  transition-duration: 0.3s
+  #navtoggle
+    background-color: transparent
+    border: solid 2px $color_blue
+    padding: 5px 10px
+    color: $color_blue
+    display: none
+    
+  a
+    color: $color_black
+    padding: 10px 40px
+    &:hover
+      text-decoration: none
+      color: white
+  i.fas.fa-home
+    font-size: 30px
+  .container-fluid
+
+    .navbar-header
+      padding: 10px 40px
+      &:hover
+        background-color: $color_blue
+    ul
+      li
+        display: inline-block
+        float: none
+        padding: 10px 
+        margin-left: 20px
+        border-left: solid 5px $color_blue
+        transition: 0.3s
+        &:hover
+          background-color: $color_blue
+          cursor: pointer
+          a
+            color: white
+          
+// @media (max-width:400px)
+  

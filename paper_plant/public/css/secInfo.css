@@ -1,0 +1,87 @@
+.info-bg .infobox {
+  width: 100vw;
+  overflow: hidden; }
+
+.info-bg .infoImg {
+  height: 50vh; }
+  .info-bg .infoImg img {
+    width: 100%;
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%); }
+
+.info-bg .gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0px; }
+  .info-bg .gallery h1, .info-bg .gallery h6 {
+    text-align: center;
+    min-width: 300px;
+    margin: 10px 10px; }
+
+.info-bg .footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  padding: 100px 0px; }
+  .info-bg .footer .infoText {
+    width: 50vw;
+    min-width: 300px;
+    display: flex; }
+
+.left {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; }
+  .left .link {
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px;
+    width: 100%;
+    cursor: pointer; }
+    .left .link .fb {
+      width: 50px;
+      height: 50px; }
+      .left .link .fb img {
+        position: absolute;
+        width: 100%; }
+    .left .link h6 {
+      margin: 0;
+      margin-right: 20px; }
+    .left .link .lib {
+      max-width: 280px;
+      width: 100%; }
+      .left .link .lib img {
+        width: 100%; }
+  .left .linkfb {
+    border: solid 3px #3b5998; }
+    .left .linkfb:hover {
+      background-color: #fff; }
+      .left .linkfb:hover h6 {
+        color: black; }
+  .left .linklib {
+    border: solid 3px black;
+    padding: 10px; }
+    .left .linklib:hover {
+      border: solid 3px white; }
+
+.right {
+  display: flex;
+  flex-wrap: wrap; }
+  .right .imgbox {
+    width: 250px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .right .imgbox1 img {
+    width: 80%; }
+  .right .imgbox2 img {
+    width: 50%; }

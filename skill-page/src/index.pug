@@ -1,0 +1,47 @@
+.title
+  .top
+    .bar.topb 
+    h3 靜態履歷
+    .bar.topb
+  h1 Yun Chien Lo
+  .bar.bot
+.bottom
+  .leftbox
+    .imghead
+      img(src="https://i.imgur.com/Pkm3C4n.jpg", alt="")
+    .info#personal
+      h3 PERSONAL
+      .personal(v-for = "(per, id) in pers")
+        .partA {{per.parta}}
+        .partB {{per.partb}}
+    .info#skill
+      h3 SKILL
+      .skill(v-for = "(skill, id) in skills")
+        //- .img
+        .text
+          .text2
+            .item {{skill.item}}
+            .percentage {{skill.percentage}}%
+          .skillbar(:style="{width: skill.percentage+'%'}")
+  .rightbox
+    .part
+      h1 簡歷
+      .br
+      p 我是一個喜愛藝術和設計的人，常常觀察身邊不同的人事物，並且轉化為我畫筆下的插圖。在就讀清大資工系的四年中，也學習的程式撰寫與程式邏輯，並且在空閒時間，透過線上課程自學網頁前端程式，希望未來可以結合科技呈現和藝術概念，作為不同專案的啟發。
+      .skillgbox
+        .skillgenre
+          p 平面設計
+        .skillgenre
+          p 網頁前端
+        .skillgenre
+          p 電繪插畫
+    .part#job
+      h1 工作經歷
+      .br
+      .job(v-for="(job, id) in jobs.slice()")
+        .line(v-if="id!=jobs.length-1")
+        .date {{job.date}}
+        .jobinfo
+          .jobtitle {{job.company}} 「{{job.position}}」
+          .jobcontent {{job.discription}}
+

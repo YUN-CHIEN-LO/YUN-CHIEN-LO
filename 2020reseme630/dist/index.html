@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>YCL - 2020reseme</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<navbar class="navbar navbar-default">
+  <div class="container-fluid" id="navcon"><a class="button-toggle" href="#">三</a>
+    <ul class="nav navbar-nav navbar-menu">
+      <li class="active"><a href="#">回首頁</a></li>
+      <li><a href="#section1">工作經歷</a></li>
+      <li><a href="#section2">網站成果</a></li>
+      <li><a href="#section3">實作技巧</a></li>
+      <li><a href="#footer">聯絡方式</a></li>
+    </ul>
+  </div>
+</navbar>
+<header class="jumbotron" id="header">
+  <div class="track track1"></div>
+  <div class="track track2"></div>
+  <div class="circles">
+    <div class="circle circle1" data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);"></div>
+    <div class="circle circle2" data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);"></div>
+    <div class="circle circle3" data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);"></div>
+    <div class="circle circle4" data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);"></div>
+    <div class="circle circle5" data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);"></div>
+    <div class="circle circle6" data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);"></div>
+    <div class="circle circle7" data-0="background-color:rgb(229, 90, 84;transform:rotate(0deg);" data-500="background-color:rgb(12, 68, 117);transform:rotate(360deg);"></div>
+    <div class="circle circleBlue"></div>
+  </div>
+  <div class="text">
+    <div class="textinner">
+      <div class="bar">
+        <div class="jumpingDot jumpingDot1"></div>
+      </div>
+      <h1>羅云謙</h1>
+      <h2>Yun Chien LO</h2><br/>
+      <h5>國立清華大學 資訊工程學系</h5>
+      <h5>連絡信箱：yunchienlo@gmail.com</h5>
+      <div class="links">
+        <div class="link linkf" onclick="window.open('https://www.facebook.com/YunChienLO1998')"><i class="fab fa-facebook"></i></div>
+        <div class="link linkl" onclick="window.open(&quot;https://line.me/ti/p/8N6FRgHJKd&quot;)"><i class="fab fa-line"></i></div>
+        <div class="link linkg"><i class="fas fa-envelope-square"></i></div>
+      </div>
+      <div class="mailbox">
+        <button class="cancel cancelEmail">
+          <p>x</p>
+        </button><span>信箱：
+          <input class="email" id="email" placeholder="yunchienlo@gmail.com" type="text" name="email"/></span><span>主題：
+          <input class="name" id="name" placeholder="Yun Chien LO" type="text"/></span><span>內容：
+          <textarea class="content" id="content" placeholder="Hi! Nice to meet you!"></textarea></span>
+        <button class="sendBtn" onclick="sendemail();">發送</button>
+        <div class="sended">Message Sent!</div>
+      </div>
+      <div class="bar bot"></div>
+    </div>
+  </div>
+</header>
+<section id="section1">
+  <div class="track track3"></div>
+  <div class="track track4"></div>
+  <div class="track track5"></div>
+  <div class="track track6"></div>
+  <div class="track track7"></div>
+  <div class="container">
+    <h1 data-bottom="transform: translateY(200px)" data-center="transform: translateY(0px)">工作經歷</h1>
+    <div class="br long" data-bottom="transform: translateY(200px)" data-center="transform: translateY(0px)">
+      <div class="jumpingDot jumpingDot2"></div>
+    </div>
+    <div class="jobbox" v-for="(job, id) in jobs.slice()">
+      <div class="time">
+        <h5 class="date">{{job.date}}</h5>
+        <div class="line" v-if="id!=jobs.length-1">
+          <div class="dot" data-bottom="transform: scale(0.5)" data-center="transform: scale(2)" data-top="transform: scale(0.5)"></div>
+        </div>
+      </div>
+      <div class="job" data-bottom="transform: translateX(50px)" data-center="transform: translateY(0px)">
+        <button id="viewImg" @click="tm(job.url)">檢視作品</button>
+        <h3>{{job.company}}</h3>
+        <div class="br"></div>
+        <h4>{{job.position}}</h4>
+        <h4>{{job.discription}}</h4>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="imgboard">
+  <button class="cancel" id="cancelImg">
+    <p>x</p>
+  </button><img id="imgB"/>
+</div>
+<section id="section2">
+  <div class="container">
+    <h1 data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)">網站成果</h1>
+    <div class="br long" data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)">
+      <div class="jumpingDot jumpingDot2"></div>
+    </div>
+    <div class="showWeb">
+      <div class="web" v-for="web in webs" data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)">
+        <div class="imgbox"><img :src="web.img"/>
+          <div class="goto" @click="tm(web.url)"></div>
+        </div>
+        <h5>{{web.title}}</h5>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section3">
+  <div class="container">
+    <h1 data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)">實作技巧</h1>
+    <div class="br long" data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)">
+      <div class="jumpingDot jumpingDot2"></div>
+    </div>
+    <div class="showSkill">
+      <h2>熟悉HTML、PUG、CSS排版、CSS動畫、SASS、Bootstrap、RWD、Javascript、jQuery、AJAX、Vue.js、Skrollr.js等相關js套件</h2>
+      <h2>熟悉c++、python等程式語言並且熟悉程式邏輯、會使用git、linux系統、VSCode環境。</h2>
+      <h2>熟悉Photoshop、Illustrator軟體操作</h2>
+      <h2>具備英文聽說讀寫能力：托福95分、多益935分、全民英檢中高級複試通過</h2>
+      <div class="skill" v-for="skill in skills">
+        <div class="chart">
+          <div class="temp" :style="{transform: 'rotate('+ (-3.6*skill.percentage) + 'deg)'}">
+            <div class="half"></div>
+          </div>
+          <div class="cover"></div>
+          <div class="cover2" data-bottom="transform: rotate(-80deg)" data-100-center="transform: rotate(90deg)" data-top="transform: rotate(90deg)"></div>
+          <div class="perc">{{skill.percentage}}%</div>
+        </div>
+        <div class="title">{{skill.item}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="jumbotron" id="footer">
+  <div class="track track8"></div>
+  <div class="track track9"></div>
+  <div class="container">
+    <h1 data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)">聯絡方式</h1>
+    <div class="br long" data-bottom="transform: translateY(100px)" data-center="transform: translateY(0px)">
+      <div class="jumpingDot jumpingDot2"></div>
+    </div>
+    <h5>連絡信箱：yunchienlo@gmail.com</h5>
+    <div class="links">
+      <div class="link linkf" onclick="window.open('https://www.facebook.com/YunChienLO1998')"><i class="fab fa-facebook"></i></div>
+      <div class="link linkl" onclick="window.open(&quot;https://line.me/ti/p/8N6FRgHJKd&quot;)"><i class="fab fa-line"></i></div>
+      <div class="link linkg"><i class="fas fa-envelope-square"></i></div>
+    </div>
+    <div class="mailbox">
+      <button class="cancel cancelEmail">
+        <p>x</p>
+      </button><span>信箱：
+        <input class="email" id="email" placeholder="yunchienlo@gmail.com" type="text" name="email"/></span><span>主題：
+        <input class="name" id="name" placeholder="Yun Chien LO" type="text"/></span><span>內容：
+        <textarea class="content" id="content" placeholder="Hi! Nice to meet you!"></textarea></span>
+      <button class="sendBtn" onclick="sendemail();">發送</button>
+    </div>
+    <div class="sended">Message Sent!</div>
+  </div>
+</footer>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/2.0.5/velocity.min.js'></script>
+<script src='https://smtpjs.com/v3/smtp.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

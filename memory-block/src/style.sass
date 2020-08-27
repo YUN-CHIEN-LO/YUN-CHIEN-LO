@@ -1,0 +1,91 @@
+$colorRed: #ff5353
+$colorYellow: #ffc429
+$colorBlue: #5980c1
+$colorWhite: #fbe9b7
+$colorGreen: #8dcf78
+$colorPurple: #8b62de
+$colorPink: #de4bdb
+$colorOrange: #d97f25
+$colorBlack: #999999
+=size($w, $h:$w)
+  width: $w
+  height: $h
+=flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+=setBlockColor($color)
+  box-shadow: 0 0 15px rgba($color, 0.2)
+  background-color: transparent
+  border: solid 1px lighten($color, 5)
+  &:hover
+    background-color: rgba($color, 0.3)
+    box-shadow: 0 0 25px rgba($color, 0.5)
+  &:active, &.active
+    box-shadow: 0 0 35px $color
+    background-color: $color
+html, body
+  background-color: #232526
+  color: white
+  +flexCenter
+  +size(100%)
+  margin: 0
+.infos
+  position: absolute
+  left: 40px
+  top: 40px
+  h1
+    font-size: 40px
+    margin-top: 0
+    margin-bottom: 0
+    letter-spacing: 1px
+    line-height: 1.2
+  h3
+    font-weight: 500
+    color: $colorRed
+.blocks
+  color: white
+  .row
+    display: flex
+  .block
+    +size(100px)
+    border: 1px solid #fff
+    +flexCenter
+    transition: 0.5s
+    margin: 12px
+    &:active, &.active
+      background-color: #fff
+      transition: 0s
+      color: black
+      
+    &.block1
+      +setBlockColor($colorRed)
+    &.block2
+      +setBlockColor($colorYellow)
+    &.block3
+      +setBlockColor($colorOrange)
+    &.block4
+      +setBlockColor($colorWhite)
+    &.block5
+      +setBlockColor($colorGreen)
+    &.block6
+      +setBlockColor($colorBlue)
+    &.block7
+      +setBlockColor($colorPurple)
+.inputStatus
+  margin-top: 10px
+  &.correct
+    .circle
+      background-color: $colorBlue
+  &.wrong
+    .circle
+      background-color: $colorRed
+  .circle
+    +size(10px)
+    background-color: white
+    opacity: 0.3
+    margin: 5px
+    display: inline-block
+    border-radius: 50%
+    &.correct
+      opacity: 1

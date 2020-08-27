@@ -1,0 +1,236 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Work+Sans|Zhi+Mang+Xing&display=swap");
+* {
+  font-family: "Work Sans", sans-serif, "Zhi Mang Xing", cursive, 微軟正黑體;
+  cursor: default;
+  user-select: none;
+  font-weight: bold;
+}
+* #sec_3 {
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 2000px;
+}
+
+header.jumbotron {
+  margin: 0;
+  height: 100vh;
+  background-image: linear-gradient(#ff80b0, #ffc7c7);
+  color: white;
+  text-align: center;
+}
+header.jumbotron h1 {
+  font-family: "Zhi Mang Xing", cursive;
+  padding-top: 150px;
+  font-size: 200px;
+}
+header.jumbotron h1:hover {
+  cursor: pointer;
+}
+header.jumbotron h1:active {
+  animation: splash 5s normal forwards ease-in-out;
+}
+header.jumbotron h4 {
+  font-weight: light;
+}
+header.jumbotron .bottom_img {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 90%;
+  left: 50%;
+}
+
+section#sec_1 {
+  height: 100vh;
+  background-image: linear-gradient(#ffc7c7, #a9fffd);
+  padding-top: 100px;
+}
+section#sec_1 h1 {
+  color: white;
+  font-size: 100px;
+}
+section#sec_1 .col-sm-5.img {
+  z-index: 2;
+}
+section#sec_1 .col-sm-5.img img {
+  hight: 100%;
+  float: right;
+  transform: translate(0%, 10%);
+}
+section#sec_1 .col-sm-7.text {
+  z-index: 3;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 23px;
+}
+
+section#sec_2 {
+  background-image: linear-gradient(#a9fffd, #9399ff, #a9fffd);
+  padding-top: 100px;
+}
+section#sec_2 h1 {
+  color: white;
+  font-size: 100px;
+}
+section#sec_2 h4 {
+  font-size: 23px;
+}
+section#sec_2 .col-sm-6 {
+  margin-top: 20px;
+  overflow: hidden;
+}
+section#sec_2 .col-sm-6 .left_block {
+  float: right;
+}
+section#sec_2 .col-sm-6 .right_block {
+  float: left;
+}
+section#sec_2 .col-sm-6 .img_frame {
+  transition-duration: 0.3s;
+  max-height: 400px;
+  max-width: 400px;
+  overflow: hidden;
+}
+section#sec_2 .col-sm-6 .img_frame img {
+  width: 100%;
+}
+section#sec_2 .col-sm-6 .text {
+  transition-duration: 0.3s;
+  max-width: 400px;
+  max-height: 350px;
+  padding: 10%;
+  position: absolute;
+  top: 100px;
+  color: white;
+  opacity: 0;
+  overflow: scroll;
+}
+section#sec_2 .col-sm-6 .text h4 {
+  margin: 50px 0px;
+}
+section#sec_2 .col-sm-6:hover .img_frame {
+  filter: brightness(50%);
+}
+section#sec_2 .col-sm-6:hover .text {
+  opacity: 1;
+  top: 0px;
+}
+
+section#sec_3 {
+  background-image: linear-gradient(#a9fffd, #ffc7c7);
+  padding-top: 200px;
+}
+section#sec_3 img {
+  width: 100%;
+  margin-top: 100px;
+}
+section#sec_3 h1 {
+  color: white;
+  font-size: 100px;
+}
+section#sec_3 .col-md-2.col-sm-4 {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  color: #333;
+  font-size: 70px;
+  transition-duration: 0.3s;
+}
+section#sec_3 .col-md-2.col-sm-4 p {
+  font-size: 15px;
+}
+section#sec_3 .col-md-2.col-sm-4:hover {
+  margin-top: 0px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+footer.jumbotron {
+  margin: 0;
+  height: 100vh;
+  background-image: linear-gradient(#ffc7c7, #ff80b0);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+footer.jumbotron h1 {
+  font-family: "Zhi Mang Xing", cursive;
+  padding-top: 150px;
+  font-size: 200px;
+}
+footer.jumbotron h4 {
+  font-weight: light;
+}
+footer.jumbotron .footer_img {
+  width: 100%;
+  transform: scale(1.3) translateY(30px);
+}
+
+nav.navbar#nav {
+  z-index: 5;
+  position: fixed;
+  width: 100%;
+  min-height: 70px;
+  background-color: rgba(255, 255, 255, 0);
+  transition-duration: 0.3s;
+}
+nav.navbar#nav #navtoggle {
+  background-color: transparent;
+  border: solid 2px #333;
+  padding: 5px 10px;
+  color: #333333;
+  display: none;
+}
+nav.navbar#nav a {
+  color: #333333;
+  padding: 10px 40px;
+}
+nav.navbar#nav a:hover {
+  text-decoration: none;
+  color: white;
+}
+nav.navbar#nav i.fas.fa-home {
+  font-size: 30px;
+}
+nav.navbar#nav .container-fluid .navbar-header {
+  padding: 10px 40px;
+}
+nav.navbar#nav .container-fluid .navbar-header:hover {
+  background-color: #333333;
+}
+nav.navbar#nav .container-fluid ul li {
+  display: inline-block;
+  float: none;
+  padding: 10px;
+  margin-left: 20px;
+  transition: 0.3s;
+}
+nav.navbar#nav .container-fluid ul li:hover {
+  background-color: #333333;
+  cursor: pointer;
+}
+nav.navbar#nav .container-fluid ul li:hover a {
+  color: white;
+}
+
+canvas#canvas {
+  position: fixed;
+}
+
+@keyframes splash {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1, 1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}

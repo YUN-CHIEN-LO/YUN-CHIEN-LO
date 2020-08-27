@@ -1,0 +1,88 @@
+$colorRed: #fe5b45
+=size($w, $h:$w)
+  width: $w
+  height: $h
+=abcenter
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+*
+  // border: solid 1px black
+html, body
+  +size(100%)
+  margin: 0
+  background-color: #eaeaea
+.target
+  +abcenter
+[class^="cir"]
+  +size(500px)
+  border-radius: 50%
+  +abcenter
+  transition: 0.5s
+  &.cir1
+    +size(100px)
+    z-index: 5
+  &.cir2
+    +size(200px)
+    z-index: 4
+  &.cir3
+    +size(300px)
+    z-index: 3
+  &.cir4
+    +size(400px)
+    z-index: 2
+  &.cir5
+    +size(500px)
+    z-index: 1
+    border: 10px solid white
+    box-shadow: 0px 0px 50px
+    
+  background-color: white
+  &:nth-child(2n+1)
+    background-color: $colorRed
+  &:active
+    filter: brightness(80%)
+    transition: 0s
+  &:before
+    content: attr(data-label)
+    +abcenter
+    top: 20px
+.infos
+  position: fixed
+  left: 50px  
+  bottom: 50px
+  z-index: 10
+  h1, h3
+    margin: 0
+  h1
+    font-size: 50px
+  h3
+    opacity: 0.5
+    
+.target.moving
+  animation: moving 1s infinite alternate
+  @keyframes moving
+    0%
+      transform: translateX(-200px)
+    100%
+      transform: translateX(200px)
+.mouse
+  position: absolute
+  pointer-events: none
+  z-index: 100
+  &:before, &:after
+    content: ''
+    display: block
+    +size(40px, 8px)
+    background-color: #222
+    +abcenter
+  &:before
+    transform: translate(-50%, -50%) rotate(90deg)
+.spot
+  pointer-events: none
+  +abcenter
+  +size(15px)
+  border-radius: 50%
+  z-index: 10
+  background-color: rgba(black, 0.3)
