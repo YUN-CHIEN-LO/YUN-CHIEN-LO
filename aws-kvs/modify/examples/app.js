@@ -26,8 +26,10 @@ const fullHdConstraints = {
     height: { ideal: 1080 },
     deviceId: { ideal: "" }
 };
+var viewerIceConnectionStatusPre = "none";
 setInterval(function() {
     console.log("viewerIceConnectionStatus", viewerIceConnectionStatus)
+    document.getElementById("connectStatus").innerText("viewerIceConnectionStatus");
 }, 1000);
 
 
@@ -38,6 +40,7 @@ $('#connectStatus').bind('DOMSubtreeModified', function() {
     var reconnect;
     var status = document.getElementById("connectStatus").innerText;
     console.log(status);
+
     if (status == "disconnected") {
         console.log("reconnect ....");
         // reconnect = setInterval(function(){
