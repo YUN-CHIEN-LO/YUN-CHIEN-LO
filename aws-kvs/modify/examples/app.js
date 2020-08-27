@@ -3,37 +3,79 @@ let kinesisVideoClient = null;
 
 // video resolution
 const qvgaConstraints = {
-    video: { width: { ideal: 320 }, height: { ideal: 240 } }
+    // video: { width: { ideal: 320 }, height: { ideal: 240 }, deviceID: { exact: "046d:081b" } }
+    width: { ideal: 320 },
+    height: { ideal: 240 },
+    deviceId: { ideal: "" }
 };
 const vgaConstraints = {
-    video: { width: { ideal: 640 }, height: { ideal: 480 } }
+    // video: { width: { ideal: 640 }, height: { ideal: 480 }, deviceID: { exact: "046d:081b" } }
+    width: { ideal: 640 },
+    height: { ideal: 480 },
+    deviceId: { ideal: "" }
 };
 const hdConstraints = {
-    video: { width: { ideal: 1280 }, height: { ideal: 720 } }
+    // video: { width: { ideal: 1280 }, height: { ideal: 720 }, deviceID: { exact: "046d:081b" } }
+    width: { ideal: 1280 },
+    height: { ideal: 720 },
+    deviceId: { ideal: "" }
 };
 const fullHdConstraints = {
-    video: { width: { ideal: 1920 }, height: { ideal: 1080 } }
+    // video: { width: { ideal: 1920 }, height: { ideal: 1080 }, deviceID: { exact: "046d:081b" } }
+    width: { ideal: 1920 },
+    height: { ideal: 1080 },
+    deviceId: { ideal: "" }
 };
 var constraints = vgaConstraints
-setInterval(function() {
-    document.getElementById('qvga').onclick = function() {
-        constraints = qvgaConstraints;
-        console.log("change qvga");
-    };
-    document.getElementById('vga').onclick = function() {
-        constraints = vgaConstraints;
-        console.log("change vga");
-    };
-    document.getElementById('hd').onclick = function() {
-        constraints = hdConstraints;
-        console.log("change hd");
-    };
-    document.getElementById('fullhd').onclick = function() {
-        constraints = fullHdConstraints;
-        console.log("change fullhd");
-    };
-}, 100)
 
+
+
+$('#connectStatus').bind('DOMSubtreeModified', function() {
+    var reconnect;
+    var status = document.getElementById("connectStatus").innerText;
+    console.log(status);
+    if (status == "disconnected") {
+        console.log("reconnect ....");
+        // reconnect = setInterval(function(){
+        //     stopViewer();
+        //     viewerBTN();
+        // }, 1000);
+        stopViewer();
+        viewerBTN();
+    }
+    if (status == "connected") {
+        console.log("connect success");
+        clearInterval(reconnect);
+    }
+});
+
+navigator.mediaDevices.enumerateDevices().then(gotDevices);
+var assignCamId;
+
+function gotDevices(mediaDevices) {
+    select.innerHTML = '';
+    // select.appendChild(document.createElement('option'));
+    let count = 0;
+    mediaDevices.forEach(mediaDevice => {
+        if (mediaDevice.kind === 'videoinput') {
+            const option = document.createElement('option');
+            option.value = mediaDevice.deviceId;
+            const label = mediaDevice.label || `Camera ${count++}`;
+            console.log(label)
+            const textNode = document.createTextNode(label);
+            option.appendChild(textNode);
+            select.appendChild(option);
+            if (label.includes('046d:081b')) {
+                console.log("found", label);
+                assignCamId = mediaDevice.deviceId;
+                constraints.deviceId = { ideal: assignCamId }
+            } else {
+                console.log("not found", label);
+            }
+        }
+    });
+
+}
 
 function configureLogging() {
     function log(level, messages) {
@@ -226,6 +268,7 @@ function popupViewer() {
 }
 
 function viewerBTN() {
+    console.log("viewerBTN");
     ROLE = 'viewer';
     $('#form').addClass('d-none');
     $('#viewer').removeClass('d-none');

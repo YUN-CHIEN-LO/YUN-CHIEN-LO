@@ -2,7 +2,6 @@
  * This file demonstrates the process of starting WebRTC streaming using a KVS Signaling Channel.
  */
 const viewer = {};
-
 async function startViewer(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     viewer.localView = localView;
     viewer.remoteView = remoteView;
@@ -140,7 +139,24 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
                 offerToReceiveVideo: true,
             }),
         );
-
+        //detect disconnection
+        viewer.peerConnection.oniceconnectionstatechange = () => {
+            const iceConnectionState = viewer.peerConnection.iceConnectionState;
+            if (iceConnectionState === 'disconnected') {
+                console.log("viewer ice disconnected");
+                document.getElementById("connectStatus").innerText = "disconnected";
+                //   this.sendSdpOffer()
+                //   .then(() => {
+                //     this.sdpOfferInterval = setInterval(this.sendSdpOffer, SDP_OFFER_REPEAT_INTERVAL);
+                //   });
+            } else if (iceConnectionState === 'failed') {
+                console.log("viewer ice failed")
+                viewer.status = FAILED;
+            } else if (iceConnectionState === 'connected') {
+                console.log("viewer ice connected");
+                document.getElementById("connectStatus").innerText = "connected";
+            }
+        };
         // When trickle ICE is enabled, send the offer now and then send ICE candidates as they are generated. Otherwise wait on the ICE candidates.
         if (formValues.useTrickleICE) {
             console.log('[VIEWER] Sending SDP offer');
@@ -171,6 +187,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
 
     // Send any ICE candidates to the other peer
     viewer.peerConnection.addEventListener('icecandidate', ({ candidate }) => {
+        console.log('[VIEWER] found candidate')
         if (candidate) {
             console.log('[VIEWER] Generated ICE candidate');
 
@@ -193,9 +210,10 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
     // As remote tracks are received, add them to the remote view
     viewer.peerConnection.addEventListener('track', event => {
         console.log('[VIEWER] Received remote track');
-        if (remoteView.srcObject) {
-            return;
-        }
+        // if (remoteView.srcObject) {
+        //     return;
+        // }
+        console.log(event.streams[0]);
         viewer.remoteStream = event.streams[0];
         remoteView.srcObject = viewer.remoteStream;
     });

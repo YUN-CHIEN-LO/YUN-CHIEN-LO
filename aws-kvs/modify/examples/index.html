@@ -114,11 +114,12 @@
                     <button id="create-channel-button" type="button" class="btn btn-primary">Create Channel</button>
                 </div>
             </form>
-            <div class="hide" id="btns">
+            <div id="btns" style="z-index: 10" class="hide">
                 <button id="qvga">qvga</button>
                 <button id="vga">vga</button>
                 <button id="hd">hd</button>
                 <button id="fullhd">fullhd</button>
+                <select name="" id="select">select camera</select>
             </div>
 
             <h1 id="channel_name"></h1>
@@ -152,7 +153,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hide">
+                <div>
                     <span class="send-message datachannel">
                   <button type="button" class="btn btn-primary">Send DataChannel Message</button>
                 </span>
@@ -162,6 +163,7 @@
 
             <div id="viewer" class="d-none">
                 <!-- <h2>Viewer</h2> -->
+                <h3 id="connectStatus">connect status</h3>
                 <div class="" style="display: flex; justify-content: space-between;">
                     <!-- row -->
                     <!-- <div class=""> -->
@@ -206,6 +208,7 @@
         </div>
     </div>
 
+
     <div id="test"></div>
 
     <script>
@@ -230,7 +233,7 @@
     <script src="./viewer.js"></script>
     <script src="./createSignalingChannel.js"></script>
     <script src="./removeSignalingChannel.js"></script>
-    <script src="./getSignalingChannelEndpoint.js"></script>
+    <!-- <script src="./getSignalingChannelEndpoint.js"></script> -->
     <script src="./app.js"></script>
 
 </body>

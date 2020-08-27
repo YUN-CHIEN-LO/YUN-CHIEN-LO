@@ -1,6 +1,10 @@
 /**
  * This file demonstrates the process of starting WebRTC streaming using a KVS Signaling Channel.
  */
+const select = document.getElementById('select');
+var Constraints = {};
+
+
 const master = {
     signalingClient: null,
     peerConnectionByClientId: {},
@@ -13,8 +17,11 @@ const master = {
 async function startMaster(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     master.localView = localView;
     master.remoteView = remoteView;
-
-    // Create KVS client
+    $("#select").on('change', function() {
+            Constraints.video.deviceId = { ideal: select.value }
+            console.log(Constraints);
+        })
+        // Create KVS client
     const kinesisVideoClient = new AWS.KinesisVideo({
         region: formValues.region,
         accessKeyId: formValues.accessKeyId,
@@ -99,7 +106,8 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
 
     const resolution = formValues.widescreen ? { width: { ideal: 320 }, height: { ideal: 240 } } : { width: { ideal: 320 }, height: { ideal: 240 } };
     //const resolution = formValues.widescreen ? { width: { ideal: 640 }, height: { ideal: 480 } } : { width: { ideal: 640 }, height: { ideal: 480 } };
-    const Constraints = {
+
+    Constraints = {
         video: formValues.sendVideo ? constraints : false,
         // audio: formValues.sendAudio,
         audio: true
@@ -109,10 +117,12 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
     // Get a stream from the webcam and display it in the local view. 
     // If no video/audio needed, no need to request for the sources. 
     // Otherwise, the browser will throw an error saying that either video or audio has to be enabled.
+
     if (formValues.sendVideo || formValues.sendAudio) {
         try {
             master.localStream = await navigator.mediaDevices.getUserMedia(Constraints); //get videos
             localView.srcObject = master.localStream;
+
         } catch (e) {
             console.error('[MASTER] Could not find webcam');
         }
@@ -165,9 +175,9 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
         // As remote tracks are received, add them to the remote view
         peerConnection.addEventListener('track', event => {
             console.log('[MASTER] Received remote track from client: ' + remoteClientId);
-            if (remoteView.srcObject) {
-                return;
-            }
+            // if (remoteView.srcObject) {
+            //     return;
+            // }
             remoteView.srcObject = event.streams[0];
         });
 
