@@ -146,8 +146,9 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
             if (iceConnectionState === 'disconnected') {
                 console.log("viewer ice disconnected");
                 jQuery.get('index.html', null, function(text) {
-                    alert($(text).find('#connectStatus').innerText());
-                    $(text).find('#connectStatus').innerText() = "disconnected";
+                    // alert($(text).find('#connectStatus').innerText());
+                    var item1 = $("#connectStatus")[0];
+                    $(text).find(item1).innerText() = "disconnected";
                 });
                 //document.getElementById("connectStatus").innerText = "disconnected";
                 //   this.sendSdpOffer()
@@ -159,9 +160,9 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
                 viewer.status = FAILED;
             } else if (iceConnectionState === 'connected') {
                 console.log("viewer ice connected");
-                jQuery.get('index.html', null, function(text) {
-                    $(text).find('#connectStatus').innerText() = "disconnected";
-                });
+                // jQuery.get('index.html', null, function(text) {
+                //     $(text).find('#connectStatus').innerText() = "disconnected";
+                // });
             }
         };
         // When trickle ICE is enabled, send the offer now and then send ICE candidates as they are generated. Otherwise wait on the ICE candidates.
