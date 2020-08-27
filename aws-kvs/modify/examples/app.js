@@ -27,7 +27,6 @@ const fullHdConstraints = {
     deviceId: { ideal: "" }
 };
 var constraints = vgaConstraints;
-const formValues = getFormValues();
 
 
 $('#connectStatus').bind('DOMSubtreeModified', function() {
@@ -136,6 +135,7 @@ function getFormValues() {
         sessionToken: $('#sessionToken').val() || null,
     };
 }
+const formValues = (formValues.channelName) ? formValues : getFormValues();
 
 function toggleDataChannelElements() {
     if (getFormValues().openDataChannel) {
@@ -161,12 +161,6 @@ function onStop() {
         stopViewer();
         $('#viewer').addClass('d-none');
     }
-    var closeChannel = window.setTimeout(function() {
-        $('#master-button').click(() => clearTimeout(this));
-        $('#form').removeClass('d-none');
-        //const formValues = getFormValues();
-        // removeSignalingChannel(formValues);
-    }, 10000);
 
     ROLE = null;
 }
