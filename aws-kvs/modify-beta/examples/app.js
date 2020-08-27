@@ -163,22 +163,22 @@ function onStop() {
         stopViewer();
         $('#viewer').addClass('d-none');
     }
-    var closeChannel = window.setTimeout(function() {
-        $('#master-button').click(() => clearTimeout(this));
-        $('#form').removeClass('d-none');
-        const formValues = getFormValues();
-        // removeSignalingChannel(formValues);
-    }, 10000);
+    // var closeChannel = window.setTimeout(function() {
+    //     $('#master-button').click(() => clearTimeout(this));
+    //     $('#form').removeClass('d-none');
+    //     const formValues = getFormValues();
+    //     // removeSignalingChannel(formValues);
+    // }, 10000);
 
     ROLE = null;
 }
 
 window.addEventListener('beforeunload', onStop);
 
-window.addEventListener('error', function(event) {
-    console.error(event.message);
-    event.preventDefault();
-});
+// window.addEventListener('error', function(event) {
+//     console.error(event.message);
+//     event.preventDefault();
+// });
 
 window.addEventListener('unhandledrejection', function(event) {
     console.error(event.reason.toString());
