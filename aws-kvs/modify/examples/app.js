@@ -1,6 +1,6 @@
 let ROLE = null; // Possible values: 'master', 'viewer', null
 let kinesisVideoClient = null;
-
+var getForm = false;
 // video resolution
 const qvgaConstraints = {
     // video: { width: { ideal: 320 }, height: { ideal: 240 }, deviceID: { exact: "046d:081b" } }
@@ -223,7 +223,10 @@ function masterBtn() {
     const localMessage = $('#master .local-message')[0];
     const remoteMessage = $('#master .remote-message')[0];
     //const formValues = getFormValues();
-    formValues = (formValues.channelName) ? formValues : getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
 
     $(remoteMessage).empty();
     localMessage.value = '';
@@ -281,7 +284,10 @@ function viewerBTN() {
     const localMessage = $('#viewer .local-message')[0];
     const remoteMessage = $('#viewer .remote-message')[0];
     //const formValues = getFormValues();
-    formValues = (formValues.channelName) ? formValues : getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
     $(remoteMessage).empty();
     localMessage.value = '';
     toggleDataChannelElements();
@@ -302,7 +308,10 @@ $('#stop-viewer-button').click(function() {
 
 $('#create-channel-button').click(async() => {
     //const formValues = getFormValues();
-    formValues = (formValues.channelName) ? formValues : getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
     createSignalingChannel(formValues);
 });
 
@@ -318,7 +327,10 @@ $('#viewer .send-message').click(async() => {
 
 function getSignalingChannelEndpoint() {
     //const formValues = getFormValues();
-    formValues = (formValues.channelName) ? formValues : getFormValues();
+    if (!getForm) {
+        getForm = true;
+        formValues = getFormValues();
+    }
     getSignalingChannelEndpoint(formValues);
 }
 
