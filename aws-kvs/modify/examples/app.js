@@ -31,9 +31,9 @@ var constraints = vgaConstraints;
 
 $('#connectStatus').bind('DOMSubtreeModified', function() {
     var reconnect;
-    // var status = document.getElementById("connectStatus").innerText;
+    var status = document.getElementById("connectStatus").innerText;
     console.log(status);
-    if (viewerIceConnectionStatus == false) {
+    if (status == "disconnected") {
         console.log("reconnect ....");
         // reconnect = setInterval(function(){
         //     stopViewer();
@@ -42,7 +42,7 @@ $('#connectStatus').bind('DOMSubtreeModified', function() {
         stopViewer();
         viewerBTN();
     }
-    if (status == true) {
+    if (status == "connected") {
         console.log("connect success");
         clearInterval(reconnect);
     }

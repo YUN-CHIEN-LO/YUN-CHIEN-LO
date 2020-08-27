@@ -1,7 +1,7 @@
 /**
  * This file demonstrates the process of starting WebRTC streaming using a KVS Signaling Channel.
  */
-var viewer = {};
+const viewer = {};
 async function startViewer(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     viewer.localView = localView;
     viewer.remoteView = remoteView;
@@ -145,9 +145,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
             console.log("ice connection state", iceConnectionState);
             if (iceConnectionState === 'disconnected') {
                 console.log("viewer ice disconnected");
-                // document.getElementById("connectStatus").innerText = "disconnected";
-                viewerIceConnectionStatus = false;
-                // 123
+                document.getElementById("connectStatus").innerText = "disconnected";
                 //   this.sendSdpOffer()
                 //   .then(() => {
                 //     this.sdpOfferInterval = setInterval(this.sendSdpOffer, SDP_OFFER_REPEAT_INTERVAL);
@@ -158,7 +156,6 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
             } else if (iceConnectionState === 'connected') {
                 console.log("viewer ice connected");
                 document.getElementById("connectStatus").innerText = "connected";
-                viewerIceConnectionStatus = true;
             }
         };
         // When trickle ICE is enabled, send the offer now and then send ICE candidates as they are generated. Otherwise wait on the ICE candidates.
@@ -220,7 +217,6 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
         console.log(event.streams[0]);
         viewer.remoteStream = event.streams[0];
         remoteView.srcObject = viewer.remoteStream;
-        viewerIceConnectionStatus = true
     });
 
     console.log('[VIEWER] Starting viewer connection');
