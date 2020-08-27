@@ -148,6 +148,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
                 jQuery.get('index.html', null, function(text) {
                     // alert($(text).find('#connectStatus').innerText());
                     var item1 = $("#connectStatus")[0];
+                    console.log(item1);
                     $(text).find(item1).innerText() = "disconnected";
                 });
                 //document.getElementById("connectStatus").innerText = "disconnected";
