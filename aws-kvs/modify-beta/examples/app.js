@@ -2,51 +2,51 @@ let ROLE = null; // Possible values: 'master', 'viewer', null
 let kinesisVideoClient = null;
 
 // video resolution
-const qvgaConstraints = {
-    width: { ideal: 60 },
-    height: { ideal: 40 },
-    deviceId: { ideal: "" }
-};
+// const qvgaConstraints = {
+//     width: { ideal: 60 },
+//     height: { ideal: 40 },
+//     deviceId: { ideal: "" }
+// };
 const vgaConstraints = {
     width: { ideal: 640 },
     height: { ideal: 480 },
     deviceId: { ideal: "" }
 };
-const hdConstraints = {
-    width: { ideal: 1280 },
-    height: { ideal: 720 },
-    deviceId: { ideal: "" }
-};
-const fullHdConstraints = {
-    width: { ideal: 1920 },
-    height: { ideal: 1080 },
-    deviceId: { ideal: "" }
-};
+// const hdConstraints = {
+//     width: { ideal: 1280 },
+//     height: { ideal: 720 },
+//     deviceId: { ideal: "" }
+// };
+// const fullHdConstraints = {
+//     width: { ideal: 1920 },
+//     height: { ideal: 1080 },
+//     deviceId: { ideal: "" }
+// };
 var constraints = vgaConstraints;
 
-const vgaButton = document.getElementById('vga');
-const qvgaButton = document.getElementById('qvga');
-const hdButton = document.getElementById('hd');
-const fullHdButton = document.getElementById('full-hd');
-vgaButton.onclick = () => {
-    constraints.width = vgaConstraints.width;
-    constraints.height = vgaConstraints.height;
-};
+// const vgaButton = document.getElementById('vga');
+// const qvgaButton = document.getElementById('qvga');
+// const hdButton = document.getElementById('hd');
+// const fullHdButton = document.getElementById('full-hd');
+// vgaButton.onclick = () => {
+//     constraints.width = vgaConstraints.width;
+//     constraints.height = vgaConstraints.height;
+// };
 
-qvgaButton.onclick = () => {
-    constraints.width = qvgaConstraints.width;
-    constraints.height = qvgaConstraints.height;
-};
+// qvgaButton.onclick = () => {
+//     constraints.width = qvgaConstraints.width;
+//     constraints.height = qvgaConstraints.height;
+// };
 
-hdButton.onclick = () => {
-    constraints.width = hdConstraints.width;
-    constraints.height = hdConstraints.height;
-};
+// hdButton.onclick = () => {
+//     constraints.width = hdConstraints.width;
+//     constraints.height = hdConstraints.height;
+// };
 
-fullHdButton.onclick = () => {
-    constraints.width = fullHdConstraints.width;
-    constraints.height = fullHdConstraints.height;
-}
+// fullHdButton.onclick = () => {
+//     constraints.width = fullHdConstraints.width;
+//     constraints.height = fullHdConstraints.height;
+// }
 
 
 // auto reconnect
