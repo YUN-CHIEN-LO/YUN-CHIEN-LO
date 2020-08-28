@@ -196,8 +196,8 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
             }),
         );
         //detect disconnection
-        master.peerConnection.oniceconnectionstatechange = () => {
-            const iceConnectionState = master.peerConnection.iceConnectionState;
+        peerConnection.oniceconnectionstatechange = () => {
+            const iceConnectionState = peerConnection.iceConnectionState;
             if (iceConnectionState === 'disconnected') {
                 console.log("master ice disconnected");
                 document.getElementById("connectStatus").innerText = "disconnected";
