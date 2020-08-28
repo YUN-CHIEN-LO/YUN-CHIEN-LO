@@ -20,6 +20,7 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
     $("#select").on('change', function() {
             Constraints.video.deviceId = { ideal: select.value }
             console.log(Constraints);
+            master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
         })
         // Create KVS client
     const kinesisVideoClient = new AWS.KinesisVideo({

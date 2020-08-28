@@ -1,12 +1,18 @@
 /**
  * This file demonstrates the process of starting WebRTC streaming using a KVS Signaling Channel.
  */
+const select = document.getElementById('select');
+var Constraints = {};
 const viewer = {};
 async function startViewer(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     viewer.localView = localView;
     viewer.remoteView = remoteView;
-
-    // Create KVS client
+    $("#select").on('change', function() {
+            Constraints.video.deviceId = { ideal: select.value }
+            console.log(Constraints);
+            viewer.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+        })
+        // Create KVS client
     const kinesisVideoClient = new AWS.KinesisVideo({
         region: formValues.region,
         accessKeyId: formValues.accessKeyId,
@@ -92,7 +98,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
     //     video: formValues.sendVideo ? constraints : false,
     //     audio: formValues.sendAudio,
     // };
-    const Constraints = {
+    Constraints = {
         video: formValues.sendVideo ? constraints : false,
         // audio: formValues.sendAudio,
         audio: true
