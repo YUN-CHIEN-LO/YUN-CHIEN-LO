@@ -171,7 +171,15 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
                 }
             }
         });
-
+        const connectingSource = new MediaSource();
+        var assetURL = 'connecting.mp4';
+        var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+        if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
+            remoteView.srcObject = URL.createObjectURL(connectingSource);
+            connectingSource.addEventListener('sourceopen', sourceOpen);
+        } else {
+            console.error('Unsupported MIME type or codec: ', mimeCodec);
+        }
         // As remote tracks are received, add them to the remote view
         peerConnection.addEventListener('track', event => {
             console.log('[MASTER] Received remote track from client: ' + remoteClientId);
