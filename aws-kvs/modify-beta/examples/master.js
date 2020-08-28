@@ -3,18 +3,18 @@
  */
 var Constraints = {};
 let connectStatus = "not found";
-// const qvgaConstraints = {
-//     width: { ideal: 320 },
-//     height: { ideal: 240 },
-//     deviceId: { ideal: "" }
-// };
-// const hdConstraints = {
-//     width: { ideal: 1280 },
-//     height: { ideal: 720 },
-//     deviceId: { ideal: "" }
-// };
-// const vgaButton = document.querySelector('#vga');
-// const hdButton = document.querySelector('#hd');
+const qvgaConstraints = {
+    width: { ideal: 320 },
+    height: { ideal: 240 },
+    deviceId: { ideal: "" }
+};
+const hdConstraints = {
+    width: { ideal: 1280 },
+    height: { ideal: 720 },
+    deviceId: { ideal: "" }
+};
+const qvgaButton = document.getElementById('qvga');
+const hdButton = document.getElementById('hd');
 const master = {
     signalingClient: null,
     peerConnectionByClientId: {},
@@ -133,12 +133,14 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
             console.error('[MASTER] Could not find webcam');
         }
     }
-    vgaButton.onclick = async() => {
-        constraints.width = vgaConstraints.width;
-        constraints.height = vgaConstraints.height;
+    qvgaButton.onclick = async() => {
+        console.log("changed vga")
+        constraints.width = qvgaConstraints.width;
+        constraints.height = qvgaConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
     }
     hdButton.onclick = async() => {
+        onsole.log("changed hd")
         constraints.width = hdConstraints.width;
         constraints.height = hdConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
