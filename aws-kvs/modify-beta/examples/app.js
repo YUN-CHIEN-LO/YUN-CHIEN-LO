@@ -189,8 +189,8 @@ window.addEventListener('unhandledrejection', function(event) {
 });
 
 configureLogging();
-var popupV;
-var popupM;
+const popupV;
+const popupM;
 
 function popupMaster() {
     popupM = window.open('', '_blank', 'width=640,height=480');
