@@ -110,11 +110,11 @@ function configureLogging() {
         $('#logs').append($(`<div class="${level.toLowerCase()}">`).text(`[${new Date().toISOString()}] [${level}] ${text}\n`));
     }
 
-    console._error = console.error;
-    console.error = function(...rest) {
-        log('ERROR', Array.prototype.slice.call(rest));
-        console._error.apply(this, rest);
-    };
+    // console._error = console.error;
+    // console.error = function(...rest) {
+    //     log('ERROR', Array.prototype.slice.call(rest));
+    //     console._error.apply(this, rest);
+    // };
 
     console._warn = console.warn;
     console.warn = function(...rest) {
