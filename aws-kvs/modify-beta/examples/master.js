@@ -4,8 +4,8 @@
 var Constraints = {};
 let connectStatus = "not found";
 const qvgaConstraints = {
-    width: { ideal: 320 },
-    height: { ideal: 240 },
+    width: { ideal: 30 },
+    height: { ideal: 20 },
     deviceId: { ideal: "" }
 };
 const hdConstraints = {
@@ -134,7 +134,7 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
         }
     }
     qvgaButton.onclick = async() => {
-        console.log("changed vga")
+        console.log("changed qvga")
         constraints.width = qvgaConstraints.width;
         constraints.height = qvgaConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
