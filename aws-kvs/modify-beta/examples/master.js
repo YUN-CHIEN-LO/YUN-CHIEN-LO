@@ -175,6 +175,7 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
         var assetURL = 'connecting.mp4';
         var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
         if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
+            console.log("in here");
             remoteView.srcObject = URL.createObjectURL(connectingSource);
             connectingSource.addEventListener('sourceopen', sourceOpen);
         } else {
