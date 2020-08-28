@@ -199,10 +199,10 @@ window.addEventListener('beforeunload', onStop);
 //     event.preventDefault();
 // });
 
-window.addEventListener('unhandledrejection', function(event) {
-    console.error(event.reason.toString());
-    event.preventDefault();
-});
+// window.addEventListener('unhandledrejection', function(event) {
+//     console.error(event.reason.toString());
+//     event.preventDefault();
+// });
 
 configureLogging();
 let popupV = null;
