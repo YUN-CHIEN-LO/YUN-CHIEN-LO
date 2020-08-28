@@ -3,25 +3,21 @@ let kinesisVideoClient = null;
 
 // video resolution
 const qvgaConstraints = {
-    // video: { width: { ideal: 320 }, height: { ideal: 240 }, deviceID: { exact: "046d:081b" } }
     width: { ideal: 320 },
     height: { ideal: 240 },
     deviceId: { ideal: "" }
 };
 const vgaConstraints = {
-    // video: { width: { ideal: 640 }, height: { ideal: 480 }, deviceID: { exact: "046d:081b" } }
     width: { ideal: 640 },
     height: { ideal: 480 },
     deviceId: { ideal: "" }
 };
 const hdConstraints = {
-    // video: { width: { ideal: 1280 }, height: { ideal: 720 }, deviceID: { exact: "046d:081b" } }
     width: { ideal: 1280 },
     height: { ideal: 720 },
     deviceId: { ideal: "" }
 };
 const fullHdConstraints = {
-    // video: { width: { ideal: 1920 }, height: { ideal: 1080 }, deviceID: { exact: "046d:081b" } }
     width: { ideal: 1920 },
     height: { ideal: 1080 },
     deviceId: { ideal: "" }
@@ -33,19 +29,23 @@ const qvgaButton = document.querySelector('#qvga');
 const hdButton = document.querySelector('#hd');
 const fullHdButton = document.querySelector('#full-hd');
 vgaButton.onclick = () => {
-    constraints = vgaConstraints;
+    constraints.width = vgaConstraints.width;
+    constraints.height = vgaConstraints.height;
 };
 
 qvgaButton.onclick = () => {
-    constraints = qvgaConstraints;
+    constraints.width = qvgaConstraints.width;
+    constraints.height = qvgaConstraints.height;
 };
 
 hdButton.onclick = () => {
-    constraints = hdConstraints;
+    constraints.width = hdConstraints.width;
+    constraints.height = hdConstraints.height;
 };
 
 fullHdButton.onclick = () => {
-    constraints = fullHdConstraints;
+    constraints.width = fullHdConstraints.width;
+    constraints.height = fullHdConstraints.height;
 }
 
 
