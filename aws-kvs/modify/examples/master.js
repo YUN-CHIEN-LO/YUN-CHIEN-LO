@@ -195,7 +195,24 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
                 offerToReceiveVideo: true,
             }),
         );
-
+        //detect disconnection
+        peerConnection.oniceconnectionstatechange = () => {
+            const iceConnectionState = peerConnection.iceConnectionState;
+            if (iceConnectionState === 'disconnected') {
+                console.log("master ice disconnected");
+                document.getElementById("connectStatus").innerText = "disconnected";
+                //   this.sendSdpOffer()
+                //   .then(() => {
+                //     this.sdpOfferInterval = setInterval(this.sendSdpOffer, SDP_OFFER_REPEAT_INTERVAL);
+                //   });
+            } else if (iceConnectionState === 'failed') {
+                console.log("master ice failed")
+                master.status = FAILED;
+            } else if (iceConnectionState === 'connected') {
+                console.log("master ice connected");
+                document.getElementById("connectStatus").innerText = "connected";
+            }
+        };
         // When trickle ICE is enabled, send the answer now and then send ICE candidates as they are generated. Otherwise wait on the ICE candidates.
         if (formValues.useTrickleICE) {
             console.log('[MASTER] Sending SDP answer to client: ' + remoteClientId);
