@@ -25,7 +25,7 @@ const fullHdConstraints = {
 var constraints = vgaConstraints;
 
 const vgaButton = document.getElementById('vga');
-const qvgaButton = document.getElementById('#vga');
+const qvgaButton = document.getElementById('qvga');
 const hdButton = document.getElementById('hd');
 const fullHdButton = document.getElementById('full-hd');
 vgaButton.onclick = () => {
