@@ -138,12 +138,14 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
         constraints.width = qvgaConstraints.width;
         constraints.height = qvgaConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+        localView.srcObject = master.localStream
     }
     hdButton.onclick = async() => {
         console.log("changed hd")
         constraints.width = hdConstraints.width;
         constraints.height = hdConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+        localView.srcObject = master.localStream
     };
     master.signalingClient.on('open', async() => {
         console.log('[MASTER] Connected to signaling service');
