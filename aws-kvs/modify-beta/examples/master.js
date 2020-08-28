@@ -181,6 +181,7 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
             if (connectStatus == 'connected') {
                 remoteView.srcObject = event.streams[0];
             } else {
+                console.log("no remote video source");
                 const connectingSource = new MediaSource();
                 var assetURL = 'connecting.mp4';
                 var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
