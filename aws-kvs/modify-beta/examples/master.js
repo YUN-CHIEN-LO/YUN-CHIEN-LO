@@ -135,15 +135,15 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
     }
     qvgaButton.onclick = async() => {
         console.log("changed qvga")
-        constraints.width = qvgaConstraints.width;
-        constraints.height = qvgaConstraints.height;
+        Constraints.video.width = qvgaConstraints.width;
+        Constraints.video.height = qvgaConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
         localView.srcObject = master.localStream
     }
     hdButton.onclick = async() => {
         console.log("changed hd")
-        constraints.width = hdConstraints.width;
-        constraints.height = hdConstraints.height;
+        Constraints.video.width = hdConstraints.width;
+        Constraints.video.height = hdConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
         localView.srcObject = master.localStream
     };
