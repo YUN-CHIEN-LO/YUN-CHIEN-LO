@@ -26,7 +26,27 @@ const fullHdConstraints = {
     height: { ideal: 1080 },
     deviceId: { ideal: "" }
 };
-var constraints = vgaConstraints
+var constraints = vgaConstraints;
+
+const vgaButton = document.querySelector('#vga');
+const qvgaButton = document.querySelector('#qvga');
+const hdButton = document.querySelector('#hd');
+const fullHdButton = document.querySelector('#full-hd');
+vgaButton.onclick = () => {
+    constraints = vgaConstraints;
+};
+
+qvgaButton.onclick = () => {
+    constraints = qvgaConstraints;
+};
+
+hdButton.onclick = () => {
+    constraints = hdConstraints;
+};
+
+fullHdButton.onclick = () => {
+    constraints = fullHdConstraints;
+}
 
 
 // auto reconnect
