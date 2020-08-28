@@ -3,18 +3,18 @@
  */
 var Constraints = {};
 let connectStatus = "not found";
-const qvgaConstraints = {
-    width: { ideal: 320 },
-    height: { ideal: 240 },
-    deviceId: { ideal: "" }
-};
-const hdConstraints = {
-    width: { ideal: 1280 },
-    height: { ideal: 720 },
-    deviceId: { ideal: "" }
-};
-const vgaButton = document.querySelector('#vga');
-const hdButton = document.querySelector('#hd');
+// const qvgaConstraints = {
+//     width: { ideal: 320 },
+//     height: { ideal: 240 },
+//     deviceId: { ideal: "" }
+// };
+// const hdConstraints = {
+//     width: { ideal: 1280 },
+//     height: { ideal: 720 },
+//     deviceId: { ideal: "" }
+// };
+// const vgaButton = document.querySelector('#vga');
+// const hdButton = document.querySelector('#hd');
 const master = {
     signalingClient: null,
     peerConnectionByClientId: {},

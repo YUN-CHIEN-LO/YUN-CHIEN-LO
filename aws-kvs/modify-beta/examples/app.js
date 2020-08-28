@@ -24,10 +24,10 @@ const fullHdConstraints = {
 };
 var constraints = vgaConstraints;
 
-const vgaButton = document.querySelector('#vga');
-const qvgaButton = document.querySelector('#qvga');
-const hdButton = document.querySelector('#hd');
-const fullHdButton = document.querySelector('#full-hd');
+const vgaButton = document.getElementById('#vga');
+const qvgaButton = document.getElementById('#qvga');
+const hdButton = document.getElementById('#hd');
+const fullHdButton = document.getElementById('#full-hd');
 vgaButton.onclick = () => {
     constraints.width = vgaConstraints.width;
     constraints.height = vgaConstraints.height;
