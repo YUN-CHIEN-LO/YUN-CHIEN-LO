@@ -7,7 +7,7 @@ const viewer = {};
 async function startViewer(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     viewer.localView = localView;
     viewer.remoteView = remoteView;
-    $("#select").on('change', function() {
+    $("#select").on('change', async() => {
             Constraints.video.deviceId = { ideal: select.value }
             console.log(Constraints);
             viewer.localStream = await navigator.mediaDevices.getUserMedia(Constraints);

@@ -17,7 +17,7 @@ const master = {
 async function startMaster(constraints, localView, remoteView, formValues, onStatsReport, onRemoteDataMessage) {
     master.localView = localView;
     master.remoteView = remoteView;
-    $("#select").on('change', function() {
+    $("#select").on('change', async() => {
             Constraints.video.deviceId = { ideal: select.value }
             console.log(Constraints);
             master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
