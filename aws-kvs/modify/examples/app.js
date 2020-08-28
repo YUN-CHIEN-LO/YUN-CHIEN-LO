@@ -29,25 +29,24 @@ const fullHdConstraints = {
 var constraints = vgaConstraints
 
 
-
-$('#connectStatus').bind('DOMSubtreeModified', function() {
-    var reconnect;
-    var status = document.getElementById("connectStatus").innerText;
-    console.log(status);
-    if (status == "disconnected") {
-        console.log("reconnect ....");
-        // reconnect = setInterval(function(){
-        //     stopViewer();
-        //     viewerBTN();
-        // }, 1000);
-        stopViewer();
-        viewerBTN();
-    }
-    if (status == "connected") {
-        console.log("connect success");
-        clearInterval(reconnect);
-    }
-});
+// auto reconnect
+// $('#connectStatus').bind('DOMSubtreeModified', function() {
+//     var reconnect;
+//     var status = document.getElementById("connectStatus").innerText;
+//     console.log(status);
+//     if (status == "disconnected") {
+//         console.log("reconnect ....");
+//         popupV.close();
+//         stopViewer();
+//         setTimeout(() => {
+//             viewerBTN();
+//         }, 1000);
+//     }
+//     if (status == "connected") {
+//         console.log("connect success");
+//         clearInterval(reconnect);
+//     }
+// });
 
 navigator.mediaDevices.enumerateDevices().then(gotDevices);
 var assignCamId;
@@ -155,28 +154,30 @@ function onStop() {
     }
 
     if (ROLE === 'master') {
+        popupM.close();
         stopMaster();
         $('#master').addClass('d-none');
     } else {
+        // popupV.close();
         stopViewer();
         $('#viewer').addClass('d-none');
     }
-    var closeChannel = window.setTimeout(function() {
-        $('#master-button').click(() => clearTimeout(this));
-        $('#form').removeClass('d-none');
-        const formValues = getFormValues();
-        // removeSignalingChannel(formValues);
-    }, 10000);
+    // var closeChannel = window.setTimeout(function() {
+    //     $('#master-button').click(() => clearTimeout(this));
+    //     $('#form').removeClass('d-none');
+    //     const formValues = getFormValues();
+    //     // removeSignalingChannel(formValues);
+    // }, 10000);
 
     ROLE = null;
 }
 
 window.addEventListener('beforeunload', onStop);
 
-window.addEventListener('error', function(event) {
-    console.error(event.message);
-    event.preventDefault();
-});
+// window.addEventListener('error', function(event) {
+//     console.error(event.message);
+//     event.preventDefault();
+// });
 
 window.addEventListener('unhandledrejection', function(event) {
     console.error(event.reason.toString());
@@ -184,8 +185,8 @@ window.addEventListener('unhandledrejection', function(event) {
 });
 
 configureLogging();
-var popupV;
-var popupM;
+let popupV = null;
+let popupM = null;
 
 function popupMaster() {
     popupM = window.open('', '_blank', 'width=640,height=480');
@@ -244,7 +245,7 @@ $('#master-button').click(async() => {
 });
 
 $('#stop-master-button').click(function() {
-    popupM.close();
+    // popupM.close();
     onStop();
 });
 
@@ -301,7 +302,7 @@ $('#viewer-button').click(async() => {
 });
 
 $('#stop-viewer-button').click(function() {
-    popupV.close();
+    // popupV.close();
     onStop();
 });
 
