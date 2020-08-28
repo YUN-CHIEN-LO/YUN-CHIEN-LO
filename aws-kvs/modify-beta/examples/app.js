@@ -3,8 +3,8 @@ let kinesisVideoClient = null;
 
 // video resolution
 const qvgaConstraints = {
-    width: { ideal: 320 },
-    height: { ideal: 240 },
+    width: { ideal: 60 },
+    height: { ideal: 40 },
     deviceId: { ideal: "" }
 };
 const vgaConstraints = {
