@@ -41,7 +41,9 @@ $('#connectStatus').bind('DOMSubtreeModified', function() {
         //     viewerBTN();
         // }, 1000);
         stopViewer();
-        viewerBTN();
+        setTimeout(() => {
+            viewerBTN();
+        }, 1000);
     }
     if (status == "connected") {
         console.log("connect success");
