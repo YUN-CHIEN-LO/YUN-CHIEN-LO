@@ -3,7 +3,7 @@
  */
 const select = document.getElementById('select');
 var Constraints = {};
-
+let connectStatus = "not found";
 
 const master = {
     signalingClient: null,
@@ -178,7 +178,20 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
             // if (remoteView.srcObject) {
             //     return;
             // }
-            remoteView.srcObject = event.streams[0];
+            if (connectStatus == 'connected') {
+                remoteView.srcObject = event.streams[0];
+            } else {
+                const connectingSource = new MediaSource();
+                var assetURL = 'connecting.mp4';
+                var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
+                if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
+                    remoteView.srcObject = URL.createObjectURL(connectingSource);
+                    connectingSource.addEventListener('sourceopen', sourceOpen);
+                } else {
+                    console.error('Unsupported MIME type or codec: ', mimeCodec);
+                }
+            }
+
         });
 
         // If there's no video/audio, master.localStream will be null. So, we should skip adding the tracks from it.
@@ -198,6 +211,7 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
         //detect disconnection
         peerConnection.oniceconnectionstatechange = () => {
             const iceConnectionState = peerConnection.iceConnectionState;
+            connectStatus = iceConnectionState;
             if (iceConnectionState === 'disconnected') {
                 console.log("master ice disconnected");
                 document.getElementById("connectStatus").innerText = "disconnected";
