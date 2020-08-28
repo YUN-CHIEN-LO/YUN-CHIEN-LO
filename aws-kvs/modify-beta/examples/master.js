@@ -171,16 +171,11 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
                 }
             }
         });
-        const connectingSource = new MediaSource();
-        var assetURL = 'connecting.mp4';
-        var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
-        if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
-            console.log("in here");
-            remoteView.srcObject = URL.createObjectURL(connectingSource);
-            connectingSource.addEventListener('sourceopen', sourceOpen);
-        } else {
-            console.error('Unsupported MIME type or codec: ', mimeCodec);
-        }
+        const video = document.querySelector('#connectingVideo');
+        video.onplay = function() {
+            const stream = video.captureStream();
+            remoteView.srcObject = stream;
+        };
         // As remote tracks are received, add them to the remote view
         peerConnection.addEventListener('track', event => {
             console.log('[MASTER] Received remote track from client: ' + remoteClientId);
@@ -189,17 +184,6 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
             // }
             if (connectStatus == 'connected') {
                 remoteView.srcObject = event.streams[0];
-            } else {
-                console.log("no remote video source");
-                const connectingSource = new MediaSource();
-                var assetURL = 'connecting.mp4';
-                var mimeCodec = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
-                if ('MediaSource' in window && MediaSource.isTypeSupported(mimeCodec)) {
-                    remoteView.srcObject = URL.createObjectURL(connectingSource);
-                    connectingSource.addEventListener('sourceopen', sourceOpen);
-                } else {
-                    console.error('Unsupported MIME type or codec: ', mimeCodec);
-                }
             }
 
         });
