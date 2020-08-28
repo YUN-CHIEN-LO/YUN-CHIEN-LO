@@ -140,7 +140,7 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
     }
     hdButton.onclick = async() => {
-        onsole.log("changed hd")
+        console.log("changed hd")
         constraints.width = hdConstraints.width;
         constraints.height = hdConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
