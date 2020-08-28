@@ -40,6 +40,7 @@ $('#connectStatus').bind('DOMSubtreeModified', function() {
         //     stopViewer();
         //     viewerBTN();
         // }, 1000);
+        popupV.close();
         stopViewer();
         setTimeout(() => {
             viewerBTN();
@@ -161,7 +162,7 @@ function onStop() {
         stopMaster();
         $('#master').addClass('d-none');
     } else {
-        popupV.close();
+        // popupV.close();
         stopViewer();
         $('#viewer').addClass('d-none');
     }
