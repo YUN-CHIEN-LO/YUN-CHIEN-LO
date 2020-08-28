@@ -3,7 +3,7 @@
  */
 const select = document.getElementById('select');
 var Constraints = {};
-
+let connectStatus = "not found";
 
 const master = {
     signalingClient: null,
@@ -171,7 +171,6 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
                 }
             }
         });
-
         // As remote tracks are received, add them to the remote view
         peerConnection.addEventListener('track', event => {
             console.log('[MASTER] Received remote track from client: ' + remoteClientId);
@@ -198,6 +197,7 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
         //detect disconnection
         peerConnection.oniceconnectionstatechange = () => {
             const iceConnectionState = peerConnection.iceConnectionState;
+            connectStatus = iceConnectionState;
             if (iceConnectionState === 'disconnected') {
                 console.log("master ice disconnected");
                 document.getElementById("connectStatus").innerText = "disconnected";
