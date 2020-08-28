@@ -197,7 +197,7 @@ function popupMaster() {
             line-height: 0;
             max-width: 100%;
             width: 49%;
-            margin: 0;"><video class="remote-view" id="master-viewer" style="width: 49vw;" autoplay playsinline controls muted></video></div>
+            margin: 0;"><video class="remote-view" id="master-viewer" style="width: 49vw;" src="connecting.mp4" autoplay playsinline controls muted></video></div>
             </div>
             <script src="./master.js">
     <script src="./viewer.js">
@@ -257,7 +257,7 @@ function popupViewer() {
         line-height: 0;
         max-width: 100%;
         width: 49%;
-        margin: 0;"><video class="remote-view" style="width: 49vw;" id="viewer-master" autoplay playsinline controls muted></video></div>
+        margin: 0;"><video class="remote-view" style="width: 49vw;" id="viewer-master" src="connecting.mp4" autoplay playsinline controls muted></video></div>
         </div>
         <script src="./master.js">
 <script src="./viewer.js">

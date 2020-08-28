@@ -171,21 +171,13 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
                 }
             }
         });
-        const video = document.querySelector('#connectingVideo');
-        video.onplay = function() {
-            const stream = video.captureStream();
-            remoteView.srcObject = stream;
-        };
         // As remote tracks are received, add them to the remote view
         peerConnection.addEventListener('track', event => {
             console.log('[MASTER] Received remote track from client: ' + remoteClientId);
             // if (remoteView.srcObject) {
             //     return;
             // }
-            if (connectStatus == 'connected') {
-                remoteView.srcObject = event.streams[0];
-            }
-
+            remoteView.srcObject = event.streams[0];
         });
 
         // If there's no video/audio, master.localStream will be null. So, we should skip adding the tracks from it.
