@@ -133,12 +133,12 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
             console.error('[MASTER] Could not find webcam');
         }
     }
-    vgaButton.onclick = () => {
+    vgaButton.onclick = async() => {
         constraints.width = vgaConstraints.width;
         constraints.height = vgaConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
     }
-    hdButton.onclick = () => {
+    hdButton.onclick = async() => {
         constraints.width = hdConstraints.width;
         constraints.height = hdConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
