@@ -97,6 +97,7 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
         // audio: formValues.sendAudio,
         audio: true
     };
+
     console.log(Constraints);
 
     const configuration = {
@@ -130,8 +131,35 @@ async function startViewer(constraints, localView, remoteView, formValues, onSta
                 return;
             }
         }
-
-        // Create an SDP offer to send to the master
+        fullHdButton.onclick = async() => {
+            console.log("changed fullHd")
+            Constraints.video.width = fullHdConstraints.width;
+            Constraints.video.height = fullHdConstraints.height;
+            viewer.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+            localView.srcObject = viewer.localStream;
+        }
+        hdButton.onclick = async() => {
+            console.log("changed hd")
+            Constraints.video.width = hdConstraints.width;
+            Constraints.video.height = hdConstraints.height;
+            viewer.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+            localView.srcObject = viewer.localStream;
+        }
+        vgaButton.onclick = async() => {
+            console.log("changed vga")
+            Constraints.video.width = vgaConstraints.width;
+            Constraints.video.height = vgaConstraints.height;
+            viewer.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+            localView.srcObject = viewer.localStream;
+        }
+        qvgaButton.onclick = async() => {
+                console.log("changed qvga")
+                Constraints.video.width = qvgaConstraints.width;
+                Constraints.video.height = qvgaConstraints.height;
+                viewer.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+                localView.srcObject = viewer.localStream;
+            }
+            // Create an SDP offer to send to the master
         console.log('[VIEWER] Creating SDP offer');
         await viewer.peerConnection.setLocalDescription(
             await viewer.peerConnection.createOffer({
