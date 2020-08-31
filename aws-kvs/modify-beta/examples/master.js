@@ -8,6 +8,11 @@ const qvgaConstraints = {
     height: { ideal: 20 },
     deviceId: { ideal: "" }
 };
+const vgaConstraints = {
+    width: { ideal: 640 },
+    height: { ideal: 480 },
+    deviceId: { ideal: "" }
+};
 const hdConstraints = {
     width: { ideal: 1280 },
     height: { ideal: 720 },
@@ -15,6 +20,7 @@ const hdConstraints = {
 };
 const qvgaButton = document.getElementById('qvga');
 const hdButton = document.getElementById('hd');
+const vgaButton = document.getElementById('vga');
 const master = {
     signalingClient: null,
     peerConnectionByClientId: {},
@@ -133,20 +139,27 @@ async function startMaster(constraints, localView, remoteView, formValues, onSta
             console.error('[MASTER] Could not find webcam');
         }
     }
-    qvgaButton.onclick = async() => {
-        console.log("changed qvga")
-        Constraints.video.width = qvgaConstraints.width;
-        Constraints.video.height = qvgaConstraints.height;
-        master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
-        localView.srcObject = master.localStream
-    }
     hdButton.onclick = async() => {
         console.log("changed hd")
         Constraints.video.width = hdConstraints.width;
         Constraints.video.height = hdConstraints.height;
         master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
-        localView.srcObject = master.localStream
-    };
+        localView.srcObject = master.localStream;
+    }
+    vgaButton.onclick = async() => {
+        console.log("changed vga")
+        Constraints.video.width = vgaConstraints.width;
+        Constraints.video.height = vgaConstraints.height;
+        master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+        localView.srcObject = master.localStream;
+    }
+    qvgaButton.onclick = async() => {
+        console.log("changed qvga")
+        Constraints.video.width = qvgaConstraints.width;
+        Constraints.video.height = qvgaConstraints.height;
+        master.localStream = await navigator.mediaDevices.getUserMedia(Constraints);
+        localView.srcObject = master.localStream;
+    }
     master.signalingClient.on('open', async() => {
         console.log('[MASTER] Connected to signaling service');
     });

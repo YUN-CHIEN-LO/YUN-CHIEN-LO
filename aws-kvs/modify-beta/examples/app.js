@@ -7,11 +7,11 @@ let kinesisVideoClient = null;
 //     height: { ideal: 40 },
 //     deviceId: { ideal: "" }
 // };
-const vgaConstraints = {
-    width: { ideal: 640 },
-    height: { ideal: 480 },
-    deviceId: { ideal: "" }
-};
+// const vgaConstraints = {
+//     width: { exact: 64 },
+//     height: { exact: 48 },
+//     deviceId: { ideal: "" }
+// };
 // const hdConstraints = {
 //     width: { ideal: 1280 },
 //     height: { ideal: 720 },
