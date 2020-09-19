@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+        title Koinonia Hish Chu
+        
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/vue@2.6.12")
+        script(src="https://unpkg.com/swiper/swiper-bundle.min.js")
+        //- script(src="js/jquery-3.1.5.min.js")
+        //- //- script(src="js/popper.js")
+        //- script(src="js/vue.min.js")
+        //- script(src="js/swiper-bundle.js")
+        //- script(src="js/swiper-bundle.min.js")
+        //- script(src="bootstrap-4.3.1-dist/js/bootstrap.min.js")
+        //- link(rel="stylesheet", href="bootstrap-4.3.1-dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet", href="css/swiper-bundle.css")
+        link(rel="stylesheet", href="css/nav.css")
+        link(rel="stylesheet", href="css/home.css")
+        link(rel="stylesheet", href="css/news.css")
+        link(rel="stylesheet", href="css/about.css")
+        link(rel="stylesheet", href="css/event.css")
+        link(rel="stylesheet", href="css/link.css")
+        link(rel="stylesheet", href="css/connect.css")
+
+    body
+        nav.navbar.navbar-default.navbar-fixed-top
+            .container-fluid
+                .navbar-header
+                    a.navbar-brand(href='/index.html') KOINONIA
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                        span 三
+                #navbar.navbar-collapse.collapse
+                    ul.nav.navbar-nav
+                        li(class=(title == 'Home') ? 'active' : null)
+                            a#toHome 首頁
+                        li(class=(title == 'About') ? 'active' : null)
+                            a#toAbout 關於我們
+                        li(class=(title == 'About') ? 'active' : null)
+                            a#toEvent 活動一覽
+                        li(class=(title == 'About') ? 'active' : null)
+                            a#toConnect 聯絡我們
+                        li(class=(title == 'About') ? 'active' : null)
+                            a#toLink 其他連結
+        
+        section#home
+            .title-block
+                h2 清交柏克萊學生團契
+                h1 KOINONIA
+                h3 台灣新竹
+        section#news
+            .text-block
+                h5 KOINONIA 是一個交大和清大校園的基督教團契，透過學習聖經和活出聖經的真理來分享神的愛。<br>我們每週都有各種的聚會和活動，希望營造一個溫馨，友善的環境，讓學生們可以找到他們對基督教不同問題的答案，也幫助基督徒們增長他們的信仰。<br>不論你是想要成長的基督徒，或是對基督教福音感到好奇的同學，或是想要探討生命中重要的問題的同學，還是想要在這裡認識真誠的朋友，我們都歡迎你！
+            .news-block
+                .media_box#media_photo.swiper-container 
+                    .swiper-wrapper
+                        .swiper-slide(v-for="photo in photos")
+                            img(v-bind:src="photo.url", alt="")
+                    .swiper-pagination
+                    .swiper-button-prev
+                    .swiper-button-next
+        section#about
+            .text-block
+                h1 關於我們
+                h5 你一定會好奇 ”Koinonia”到底是甚麼意思? 它其實是一個希臘字, 代表與神與主內弟兄姊妹們一起分享的生活。這正是我們所重視的：與神，也和彼此建立關係。我們希望你也能一起加入這個大家庭！<br>我們本身也是一個教會 -- Gracepoint新竹恩典教會，每週日固定有週日崇拜。不論你是想要尋找教會的基督徒，或者是想要認識基督教的非基督徒，我們都十分歡迎你！<br>我們最初是從美國加州柏克萊大學開始，之後也陸續在美國各地不同的大學建立分會，2007年時，我們的教會來到台灣的清大交大開始這個團契。<br>雖然我們的背景不盡然相同，但是在神的愛裡，我們的感情卻是”零距離”！我們的願景，就是一起在清大交大建立一個聖經中使徒行傳二章中所描述的教會。
+        section#event
+            .text-block
+                h1 活動一覽
+                .events
+                    .event-block(v-for="event in events")
+                        .image
+                            img(v-bind:src="event.img", alt="")
+                        .text
+                            h3.event-title {{event.eventTitle}}
+                            h6 {{event.eventConent}}
+                            h4 時間：{{event.eventTime}}
+                            h4 地點：{{event.eventLocation}}
+                        h4.signup(v-if="event.signUp") {{event.signUp}}
+        section#connect
+            .text-block
+                h1 聯絡我們
+                .divider
+                    .map
+                        h4 地址：大學路80號
+                        iframe.embeded(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.171895701323!2d120.99796181448042!3d24.789566784087423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34683611e969e5ad%3A0x30edd1c879881e66!2z5paw56u55oGp5YW45pWZ5pyD!5e0!3m2!1szh-TW!2stw!4v1600525486605!5m2!1szh-TW!2stw" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0")
+                        h6 交大北大門對面、交大土地公廟後面
+                    .texts
+                        .socialMedia
+                            .icon#fb
+                                img(src="https://lh3.googleusercontent.com/proxy/XQwgEc7CXTiM_LchxvvQOlYtwFCvPB_njnn6cmzfkTG5frTXbfXlV5VzirWzVOJBg8N4fYng5bvHxh7mDV9rvaWkySCZ0A", alt="")
+                            .icon#ig
+                                img(src="https://cdn.cybassets.com/s/files/7510/theme/21500/assets/img/pet-icon-3.png?1522591861", alt="")
+                            .icon#line
+                                img(src="https://www.fishvilla.net/wp-content/uploads/2018/09/Line-Icon-Circle.png", alt="")
+                        .form
+                            h3 聯絡我們
+                        h6 email: something@somewhere.com
+        section#link
+            .text-block
+                h1 其他連結
+                .links
+                    .link-block
+                        h3 線上奉獻
+                    .link-block
+                        h3 靈修電子檔
+                    .link-block
+                        h3 相簿
+                    .link-block
+                        h3 臉書粉專
+                    .link-block
+                        h3 其他分會
+    script(src="js/data.js")
+    script(src="js/function.js")

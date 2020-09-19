@@ -1,0 +1,27 @@
+@import 'style.sass'
+#link
+    width: 100vw
+    min-height: 100vh
+    background-image: url("https://live.staticflickr.com/65535/50354743088_88a2f17e53_b.jpg")
+    background-repeat: no-repeat
+    background-position: center
+    background-size: cover
+    background-attachment: fixed
+    display: flex
+    justify-content: center
+    align-items: center
+    overflow: hidden
+    padding: 100px 0
+    & .text-block
+        background-color: transparent
+        color: white
+        .link-block
+            color: white
+            padding: 20px 50px
+            margin: 20px
+            border: solid 5px white
+            backdrop-filter: blur(10px)
+            cursor: pointer
+            text-align: center
+            &:hover
+                background-color: $font-color

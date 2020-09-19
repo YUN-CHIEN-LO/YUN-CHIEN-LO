@@ -1,0 +1,45 @@
+@import 'style.sass'
+#event
+    padding: 100px 0px
+    // background-color: #fcfcfc
+    .events
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        max-width: 1000px
+        .event-block
+            width: 300px
+            height: 500px
+            margin: 20px 10px
+            box-shadow: 10px 10px 10px rgba($font-color, 0.5)
+            background-color: #fff
+            .image
+                width: 299px
+                height: 169px
+                overflow: hidden
+                & img
+                    width: 100%
+            .text
+                padding: 20px
+            .signup
+                position: absolute
+                bottom: 0
+                width: 100%
+                text-align: center
+                padding: 10px
+                margin: 0
+                border: solid 5px $font-color
+                background-color: $font-color
+                color: white
+                cursor: pointer
+                &:hover
+                    letter-spacing: 10px
+            &:hover
+                .image
+                    & img
+                        width: 110%
+                        transform: translate(-5%, -5%)
+
+// .text-block
+//     background-color: #fcfcfc

@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'raleway_thin-webfont';
+  src: url("../font/raleway_thin-webfont.ttf"); }
+
+@font-face {
+  font-family: 'GenSekiGothic-M';
+  src: url("../font/GenSekiGothic-M.ttc"); }
+
+@media screen and (min-width: 614px) {
+  h1 {
+    font-size: 4.5rem;
+    letter-spacing: 20px; }
+  h2 {
+    font-size: 3.5rem;
+    letter-spacing: 20px; }
+  h3 {
+    font-size: 2.3rem;
+    letter-spacing: 20px; }
+  h4 {
+    font-size: 1.8rem; }
+  h5 {
+    font-size: 1.6rem;
+    line-height: 40px; }
+  h6 {
+    font-size: 1.3rem; } }
+
+@media screen and (max-width: 613px) {
+  h1 {
+    font-size: 3.5rem;
+    letter-spacing: 20px; }
+  h2 {
+    font-size: 2.5rem;
+    letter-spacing: 2px; }
+  h3 {
+    font-size: 2rem; }
+  h4 {
+    font-size: 1.55rem; }
+  h5 {
+    font-size: 1.4rem;
+    line-height: 40px; }
+  h6 {
+    font-size: 1rem; } }
+
+* {
+  position: relative;
+  box-sizing: border-box;
+  color: #123123;
+  font-family: 'GenSekiGothic-M', 'raleway_thin-webfont';
+  transition: 0.3s; }
+
+body, html {
+  margin: 0; }
+
+body {
+  scroll-behavior: smooth; }
+
+a {
+  cursor: pointer; }
+
+a:link {
+  text-decoration: none;
+  color: #123123; }
+
+a:visited {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+a:active {
+  text-decoration: none; }
+
+.text-block {
+  width: 100vw;
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  flex-direction: column; }
+  .text-block h1 {
+    margin-bottom: 50px; }
+  .text-block h5 {
+    font-family: 'GenSekiGothic-M';
+    width: 60%;
+    min-width: 300px;
+    padding: 50px; }
+
+#home {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://live.staticflickr.com/65535/46762630295_0197024fb0_b.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; }
+
+.title-block {
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  cursor: default; }
+  .title-block h1 {
+    font-size: 10vw;
+    font-weight: 1000;
+    pointer-events: auto;
+    border-top: solid 5px white;
+    border-bottom: solid 5px white;
+    padding: 50px;
+    font-family: 'raleway_thin-webfont'; }
+  .title-block:hover {
+    backdrop-filter: blur(0px); }
+    .title-block:hover h1 {
+      padding: 50px 500px;
+      border-top: solid 50vh white;
+      border-bottom: solid 50vh white; }
+    .title-block:hover h2, .title-block:hover h3 {
+      color: black;
+      z-index: 10; }
+    .title-block:hover h2 {
+      transform: translateY(50vh); }
+    .title-block:hover h3 {
+      transform: translateY(-50vh); }

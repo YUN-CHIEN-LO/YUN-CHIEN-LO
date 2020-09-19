@@ -1,0 +1,86 @@
+$font-color: #123123
+$main-color: #35a5c4
+$sub-color: #4b5766
+$fz: 10px
+@font-face
+    font-family: 'raleway_thin-webfont'
+    src: url('../font/raleway_thin-webfont.ttf')
+@font-face 
+    font-family: 'GenSekiGothic-M'
+    src: url('../font/GenSekiGothic-M.ttc')
+// for big screen
+@media screen and (min-width: 614px)
+    h1
+        font-size: 4.5rem
+        letter-spacing: 20px
+    h2
+        font-size: 3.5rem
+        letter-spacing: 20px
+    h3
+        font-size: 2.3rem
+        letter-spacing: 20px
+    h4
+        font-size: 1.8rem
+    h5
+        font-size: 1.6rem
+        line-height: $fz*4
+    h6
+        font-size: 1.3rem
+// for small screen
+@media screen and (max-width: 613px)
+    h1
+        font-size: 3.5rem
+        letter-spacing: 20px
+    h2
+        font-size: 2.5rem
+        letter-spacing: 2px
+    h3
+        font-size: 2rem
+    h4
+        font-size: 1.55rem
+    h5
+        font-size: 1.4rem
+        line-height: $fz*4
+    h6
+        font-size: 1rem
+*
+    position: relative
+    // border: 1px solid #666
+    box-sizing: border-box
+    color: $font-color
+    font-family: 'GenSekiGothic-M', 'raleway_thin-webfont'
+    transition: 0.3s
+body, html
+    margin: 0
+body
+    scroll-behavior: smooth
+a
+    cursor: pointer
+a:link
+  text-decoration: none
+  color: $font-color
+
+a:visited
+  text-decoration: none
+
+a:hover
+  text-decoration: none
+
+a:active
+  text-decoration: none
+
+.text-block
+    width: 100vw
+    min-height: 30vh
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #fff
+    flex-direction: column
+    h1
+        margin-bottom: 50px
+    h5
+        font-family: 'GenSekiGothic-M'
+        width: 60%
+        min-width: 300px
+        padding: 50px
